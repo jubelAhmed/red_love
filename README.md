@@ -10,7 +10,7 @@ It's deployed on Heroku [here](https://django-webpack.herokuapp.com).
 
 ## Development workflow
 
-Run the Django server (`python manage.py runserver`) and Webpack in another tab (npx webpack --config webpack.congif.js) (`yarn start`).
+Run the Django server (`python manage.py runserver`) and Webpack in another tab (npx webpack --config webpack.config.js) (`yarn start`).
 
 For more convenience you can use a tool like [Goreman](https://github.com/mattn/goreman) to run Django and Webpack in a single terminal: `goreman -f Procfile.dev start`.
 

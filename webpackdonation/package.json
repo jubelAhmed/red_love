@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "simple webpack with django",
   "main": "config.js",
+  "scripts": {
+    "build": "NODE_ENV=${NODE_ENV:-production} webpack --mode=production",
+    "start": "webpack-dev-server"
+  },
   "dependencies": {
     "bootstrap": "^4.5.0",
     "css-loader": "^3.5.3",
@@ -16,9 +20,9 @@
     "webpack-cli": "^3.3.11"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "jubel",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": ">=12"
+  }
 }

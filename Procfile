@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn coresite.wsgi --log-file -
+web: gunicorn donation.wsgi --log-file -

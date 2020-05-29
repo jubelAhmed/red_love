@@ -26,7 +26,7 @@ SECRET_KEY = 'u6cvm1vno!rnjnx5ous5t0ip=1wnnqx(!y(=ntl8!!(z-=7g=4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['redlove.herokuapp.com','127.0.0.1']
 
 
 # Application definition

@@ -1,6 +1,11 @@
+@import url('https://fonts.maateen.me/solaiman-lipi/font.css');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
 @import "bootstrap/scss/bootstrap" ;
-@import "./test.css" ;
 
-p{
-    color:blue;
+@import "./navbar.css" ;
+@import "./color.css" ;
+
+
+body{
+    font-family: 'SolaimanLipi','Montserrat', sans-serif !important;
 }

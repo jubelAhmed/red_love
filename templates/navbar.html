@@ -1,0 +1,43 @@
+{% load static %}
+<style>
+    .nav-header{
+        font-weight: 1000px  ; 
+        font-size:20px ; 
+        letter-spacing: 0.2rem ;  
+        font-family: titlefont !important ;
+       
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-mainbg  "  >
+    <a class="navbar-brand navbar-logo " style=" border-radius: 10%;"  href="#" >
+        <img src="{% static 'images/bg-6.jpg ' %}" width="30" height="30" class="d-inline-block align-top" alt=""> <span class="text-center  text-light nav-header" > রেডলাভ ব্লাড সোসাইটি </span>
+
+    </a>
+    <!-- রেড লাভ ব্লাড সোসাইটি -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ml-auto  ">
+            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+            <li class="nav-item active">
+                <a class="nav-link text-warning" style="font-weight: bold;"  href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>রক্ত দাতা</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-warning" style="font-weight: bold;"  href="javascript:void(0);"><i class="far fa-copy"></i> তথ্য </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-warning" style="font-weight: bold;"  href="javascript:void(0);"><i class="far fa-address-book"></i>প্রতিষ্টান সম্পর্কে</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-warning" style="font-weight: bold;"  href="#contact"><i class="far fa-clone"></i> যোগাযোগ </a>
+            </li>
+         
+            <li class="nav-item " style="" >
+                <a class="nav-link " style="font-weight: bold;color:#f1f504;"  href="javascript:void(0);"><i class="far fa-copy"></i> এডমিন </a>
+            </li>
+            
+            
+        </ul>
+    </div>
+</nav>

@@ -1,4 +1,4 @@
- {% extends 'base.html' %} 
+ {% extends 'base.html' %}
  {% load static %}
 
  {% block title %} Blood Doner {% endblock title %}
@@ -7,202 +7,192 @@
  {% block content %}
 
  <style>
-    .header{
-       position: relative;
-       padding-top:96px;
-       padding-left:50px;
-       padding-right:50px;
-       padding-bottom:20px;
-       font-weight: 500;
-       color: #929191;
-       height: 200px;
-       width: 100%;
-       background: url('/static/images/red_banner.jpg') no-repeat center;
-       background-size: cover;
-       z-index: 99;
-       
-    }
+     .header {
+         position: relative;
+         padding-top: 96px;
+         padding-left: 50px;
+         padding-right: 50px;
+         padding-bottom: 20px;
+         font-weight: 500;
+         color: #929191;
+         height: 200px;
+         width: 100%;
+         background: url('/static/images/red_banner.jpg') no-repeat center;
+         background-size: cover;
+         z-index: 99;
 
-    .swiper-container {
-      width: 100%;
-      height: 100%;
-      background: #000;
-    }
-    .swiper-slide {
-      font-size: 18px;
-      color:#fff;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 40px 60px;
-    }
-    .parallax-bg {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 130%;
-      height: 100%;
-      -webkit-background-size: cover;
-      background-size: cover;
-      background-position: center;
-    }
-    .swiper-slide .title {
-      font-size: 41px;
-      font-weight: 300;
-    }
-    .swiper-slide .subtitle {
-      font-size: 21px;
-    }
-    .swiper-slide .text {
-      font-size: 14px;
-      max-width: 400px;
-      line-height: 1.3;
-    }
+     }
 
-    td.highlight {
-      background-color: whitesmoke !important;
-  }
+     .swiper-container {
+         width: 100%;
+         height: 100%;
+         background: #000;
+     }
 
-  .transparent-bgopc{
-	background: rgb(76, 91, 173);
-    color: #fff;
-  	opacity: 0.9;
-}
-    
-.bg_heart {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden
- }
-</style>
-  
+     .swiper-slide {
+         font-size: 18px;
+         color: #fff;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+         padding: 40px 60px;
+     }
 
+     .parallax-bg {
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 130%;
+         height: 100%;
+         -webkit-background-size: cover;
+         background-size: cover;
+         background-position: center;
+     }
 
-    <!-- header -->
-   
+     .swiper-slide .title {
+         font-size: 41px;
+         font-weight: 300;
+     }
 
-<div class="swiper-container header-slide-widgets p-0" style="background-color: rgb(76, 91, 173);background:url('/static/images/bg-4.jpg') no-repeat center ;">
-    <!-- <div class="parallax-bg  "  style="background:url('/static/images/love_bg.jpg') no-repeat center ;background-size: cover;
-    background-position: center; background-color:rgb(76, 91, 173) " data-swiper-parallax="-23%"></div> -->
-    <div class="transparent-bgopc m-0">
-        <div class="swiper-wrapper " >
-            <div class="swiper-slide text-center   "   >
-                
-              <div class="title text-white " style="font-family: titlefont !important ;" data-swiper-parallax="-300">রেড লাভ ব্লাড সোসাইটি , নরসিংপুর</div>
-              <div class="subtitle text-warning" data-swiper-parallax="-200">নরসিংপুর এর রক্ত সহায়তার বিশ্বস্ত প্রতিষ্ঠান </div>
-              <div class="text-center p-3 "  data-swiper-parallax="-100">
-                <p> এখানে নরসিংপুর ইউনিয়নের সকল ব্লাড ডোনারদের একসাথে করার লক্ষে আমরা কাজ করে যাচ্ছি </p>
-              </div>
-            </div>
-           
-          </div> 
-           <!-- Add Pagination -->
-          <!-- <div class="swiper-pagination swiper-pagination-white"></div> -->
-          <!-- Add Navigation -->
-          <!-- <div class="swiper-button-prev swiper-button-white"></div>
-          <div class="swiper-button-next swiper-button-white"></div> -->
-    </div>
-  
-  </div> 
-  
+     .swiper-slide .subtitle {
+         font-size: 21px;
+     }
 
-    
-    <!-- end header -->
+     .swiper-slide .text {
+         font-size: 14px;
+         max-width: 400px;
+         line-height: 1.3;
+     }
+
+     td.highlight {
+         background-color: whitesmoke !important;
+     }
+
+     .transparent-bgopc {
+         background: rgb(76, 91, 173);
+         color: #fff;
+         opacity: 0.9;
+     }
+
+     .bg_heart {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         overflow: hidden
+     }
+ </style>
 
 
-    <!-- inspiration -->
 
-    <div class="jumbotron">
-        <div class="row">
-
-           <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
-            <div class="card " style="border:none;" >
-                <div class="text-center pt-2">
-                    <img class="rounded" width="50px" height="50px" src="{% static 'logo/blood-donation.png' %}" alt="">
-                </div>
-                <div class="card-body text-center ">
-                  <h5 class="card-title"> title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  
-                </div>
-              </div>
-           </div>
-
-           <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
-            <div class="card " style="border:none;" >
-                <div class="text-center pt-2">
-                    <img class="rounded" width="50px" height="50px" src="{% static 'logo/blood-drop.png' %}" alt="">
-                </div>
-                <div class="card-body text-center ">
-                  <h5 class="card-title"> title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  
-                </div>
-              </div>
-           </div>
-
-           <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
-            <div class="card " style="border:none;" >
-                <div class="text-center pt-2">
-                    <img class="rounded" width="50px" height="50px" src="{% static 'logo/blood-donation-1.png' %}" alt="">
-                </div>
-                <div class="card-body text-center ">
-                  <h5 class="card-title"> title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  
-                </div>
-              </div>
-           </div>
-           <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
-            <div class="card " style="border:none;" >
-                <div class="text-center pt-2">
-                    <img class="rounded" width="50px" height="50px" src="{% static 'logo/blood-donation-2.png' %}" alt="">
-                </div>
-                <div class="card-body text-center ">
-                  <h5 class="card-title"> title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  
-                </div>
-              </div>
-           </div>
-
-            <!-- <div class="col-sm-4 text-center my-1">
-                <div class="card shadow border-left-info py-2" style="border-radius:10px; border-left:3px solid #28A745">
-                    <div class="card-body">
-                        <div class="row align-items-center no-gutters">
-                            <div class="col text-center">
-                                <div class="text-uppercase text-primary h4 text-sm mb-1 pb-3"><span>সর্বমোট ডোনার</span></div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col text-center ">
-                                        <div class="text-dark h2 mb-0 ">
-                                           ১০০ 
-                                        </div>
-                                    </div>
-                                  
-                                </div>
-                            </div>
-                            <div class="col text-center"><i class="fas fa-clipboard-list fa-3x text-secondary" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-    </div>
-
-    <!-- endinspiration -->
+ <!-- header -->
 
 
-    <!-- donot list view -->
+ <div class="swiper-container header-slide-widgets p-0"
+     style="background-color: rgb(76, 91, 173);background:url('/static/images/bg-4.jpg') no-repeat center ;">
+     <div class="transparent-bgopc m-0">
+         <div class="swiper-wrapper ">
+             <div class="swiper-slide text-center   ">
 
-    
-    <div class="jumbotron bg-white text-primary" style="font-family: Arial, Helvetica, sans-serif;">
-    
-      <div class="text-center">
-        <h4 class="text-danger pb-2"  > ব্লাড ডোনার তালিকা </h4>
-      </div>
-      <table id="example" class="table table-striped table-bordered" style="width:100%">
+                 <div class="title text-white " style="font-family: titlefont !important ;" data-swiper-parallax="-300">
+                     রেড লাভ ব্লাড সোসাইটি , নরসিংপুর</div>
+                 <div class="subtitle text-warning" data-swiper-parallax="-200">নরসিংপুর এর রক্ত সহায়তার বিশ্বস্ত
+                     প্রতিষ্ঠান </div>
+                 <div class="text-center p-3 " data-swiper-parallax="-100">
+                     <p> এখানে নরসিংপুর ইউনিয়নের সকল ব্লাড ডোনারদের একসাথে করার লক্ষে আমরা কাজ করে যাচ্ছি </p>
+                 </div>
+             </div>
+
+         </div>
+
+     </div>
+
+ </div>
+
+
+
+ <!-- end header -->
+
+
+ <!-- inspiration -->
+
+ <div class="jumbotron">
+     <div class="row">
+
+         <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
+             <div class="card " style="border:none;">
+                 <div class="text-center pt-2">
+                     <img class="rounded" width="50px" height="50px" src="{% static 'logo/blood-donation.png' %}"
+                         alt="">
+                 </div>
+                 <div class="card-body text-center ">
+                     <h5 class="card-title"> title</h5>
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                         card's content.</p>
+
+                 </div>
+             </div>
+         </div>
+
+         <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
+             <div class="card " style="border:none;">
+                 <div class="text-center pt-2">
+                     <img class="rounded" width="50px" height="50px" src="{% static 'logo/blood-drop.png' %}" alt="">
+                 </div>
+                 <div class="card-body text-center ">
+                     <h5 class="card-title"> title</h5>
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                         card's content.</p>
+
+                 </div>
+             </div>
+         </div>
+
+         <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
+             <div class="card " style="border:none;">
+                 <div class="text-center pt-2">
+                     <img class="rounded" width="50px" height="50px" src="{% static 'logo/blood-donation-1.png' %}"
+                         alt="">
+                 </div>
+                 <div class="card-body text-center ">
+                     <h5 class="card-title"> title</h5>
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                         card's content.</p>
+
+                 </div>
+             </div>
+         </div>
+         <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
+             <div class="card " style="border:none;">
+                 <div class="text-center pt-2">
+                     <img class="rounded" width="50px" height="50px" src="{% static 'logo/blood-donation-2.png' %}"
+                         alt="">
+                 </div>
+                 <div class="card-body text-center ">
+                     <h5 class="card-title"> title</h5>
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                         card's content.</p>
+
+                 </div>
+             </div>
+         </div>
+
+
+     </div>
+ </div>
+
+ <!-- endinspiration -->
+
+
+ <!-- donot list view -->
+
+
+ <div class="jumbotron bg-white text-primary " style="font-family: Arial, Helvetica, sans-serif;">
+
+     <div class="text-center">
+         <h4 class="text-danger pb-2"> ব্লাড ডোনার তালিকা </h4>
+     </div>
+     <table id="example" class="table table-striped table-bordered" style="width:100%">
          <thead>
              <tr class="bg-white">
                  <th>নাম</th>
@@ -211,10 +201,10 @@
                  <th>অবস্থা</th>
                  <th>বর্তমান ঠিকানা</th>
                  <th>স্থায়ী ঠিকানা</th>
-                 
+
              </tr>
          </thead>
-         <tbody  style="font-family: Georgia, 'Times New Roman', Times, serif;">
+         <tbody style="font-family: Georgia, 'Times New Roman', Times, serif;">
              <tr>
                  <td>জুবেল আহমদ</td>
                  <td>o+</td>
@@ -224,12 +214,12 @@
                  <td>ঢাকা</td>
              </tr>
              <tr>
-                <td>জুবেল আহমদ</td>
-                <td>o+</td>
-                <td>০১৭৪২২৩৪৯২৬</td>
-                <td class="bg-danger"> অপ্রস্তুত</td> 
-                <td>ঘিলাছড়া</td>
-                <td>ঢাকা</td>
+                 <td>জুবেল আহমদ</td>
+                 <td>o+</td>
+                 <td>০১৭৪২২৩৪৯২৬</td>
+                 <td class="bg-danger"> অপ্রস্তুত</td>
+                 <td>ঘিলাছড়া</td>
+                 <td>ঢাকা</td>
              </tr>
              <tr>
                  <td>Ashton Cox</td>
@@ -674,39 +664,39 @@
          </tbody>
          <tfoot>
              <tr>
-                <th>নাম</th>
-                <th>রক্তের গ্রুপ</th>
-                <th>মোবাইল</th>
-                <th>অবস্থা</th>
-                <th>বর্তমান ঠিকানা</th>
-                <th>স্থায়ী ঠিকানা</th>
+                 <th>নাম</th>
+                 <th>রক্তের গ্রুপ</th>
+                 <th>মোবাইল</th>
+                 <th>অবস্থা</th>
+                 <th>বর্তমান ঠিকানা</th>
+                 <th>স্থায়ী ঠিকানা</th>
              </tr>
          </tfoot>
      </table>
 
-    </div>
+ </div>
 
-    <!-- end donot list -->
+ <!-- end donot list -->
 
-   
+
  {% endblock content %}
 
 
- 
+
  {% block script %}
 
-    <script>
-      $(document).ready(function() {
+ <script>
+     $(document).ready(function () {
          var table = $('#example').DataTable({
-            "scrollX": true,
-            "language": {
-                "lengthMenu": "Display _MENU_ records per page",
-                "zeroRecords": "কিছুই পাই নাই , দুঃখিত ",
-                "info": "সকল পেজ এ তথ্য দেখাবে",
-                "infoEmpty": "আর তথ্য নেই",
-                "infoFiltered": "(filtered from _MAX_ total records)"
-            },
-           
+             "scrollX": true,
+             "language": {
+                 "lengthMenu": "Display _MENU_ records per page",
+                 "zeroRecords": "কিছুই পাই নাই , দুঃখিত ",
+                 "info": "সকল পেজ এ তথ্য দেখাবে",
+                 "infoEmpty": "আর তথ্য নেই",
+                 "infoFiltered": "(filtered from _MAX_ total records)"
+             },
+
          });
 
          /*$('#example tbody')
@@ -717,15 +707,9 @@
              $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
          } ); */
 
-         
-
-     } );
 
 
-     
-
-    
-
-    </script>
+     });
+ </script>
 
  {% endblock script %}

@@ -47,4 +47,3 @@ $('.heart').each(function() {
     }
 });
 }, 5000);
-

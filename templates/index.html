@@ -81,6 +81,12 @@
          height: 100%;
          overflow: hidden
      }
+
+    /* #example_filter{
+         font-weight: 900;
+         font-size: 20px;
+     }*/
+
  </style>
 
 
@@ -95,7 +101,8 @@
              <div class="swiper-slide text-center   ">
 
                  <div class="title text-white " style="font-family: titlefont !important ;" data-swiper-parallax="-300">
-                     রেড লাভ ব্লাড সোসাইটি , নরসিংপুর</div>
+                     <span class="text-danger" style="-webkit-text-stroke-width: 1px;
+                     -webkit-text-stroke-color: white;">রেড লাভ</span> ব্লাড সোসাইটি , নরসিংপুর</div>
                  <div class="subtitle text-warning" data-swiper-parallax="-200">নরসিংপুর এর রক্ত সহায়তার বিশ্বস্ত
                      প্রতিষ্ঠান </div>
                  <div class="text-center p-3 " data-swiper-parallax="-100">
@@ -190,7 +197,7 @@
  <div class="jumbotron bg-white text-primary " style="font-family: Arial, Helvetica, sans-serif;">
 
      <div class="text-center">
-         <h4 class="text-danger pb-2"> ব্লাড ডোনার তালিকা </h4>
+         <h4 class="text-primary pb-2"> ব্লাড ডোনার তালিকা </h4>
      </div>
      <table id="example" class="table table-striped table-bordered" style="width:100%">
          <thead>
@@ -690,11 +697,18 @@
          var table = $('#example').DataTable({
              "scrollX": true,
              "language": {
-                 "lengthMenu": "Display _MENU_ records per page",
-                 "zeroRecords": "কিছুই পাই নাই , দুঃখিত ",
-                 "info": "সকল পেজ এ তথ্য দেখাবে",
-                 "infoEmpty": "আর তথ্য নেই",
-                 "infoFiltered": "(filtered from _MAX_ total records)"
+                "lengthMenu": "প্রত্যেক পেজ এ _MENU_ টি তথ্য দেখাবে",
+                "zeroRecords": "কিছুই পাই নাই , দুঃখিত ",
+                "info": "সকল পেজ এ তথ্য দেখাবে",
+                "infoEmpty": "আর তথ্য নেই",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search":         "অনুসন্ধান:",
+                "paginate": {
+                "first":      "প্রথম",
+                "last":       "শেষ",
+                "next":       "পরবর্তী",
+                "previous":   "পূর্বে"
+                },
              },
 
          });

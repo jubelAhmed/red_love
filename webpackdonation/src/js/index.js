@@ -3,5 +3,8 @@ import 'bootstrap' ;
 
 import './navbar' ;
 
+console.log("Hello Jubel ahmed")
 
-console.log("Hello Jbel ahmed")
+ 
+
+

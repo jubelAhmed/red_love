@@ -6,6 +6,8 @@ from django.utils.dateparse import parse_date
 
 # Create your models here.
 
+
+
 BLOOD_GROUP = (
     ('o+',"O+"),
     ('o-',"O-"),
@@ -22,21 +24,25 @@ STATUS_CHOICES = [
     ('d', 'Draft'),
     ('p', 'Published'),
 ]
-class Donor(models.Model):
+
+class ContactInfo(models.Model):
     name = models.CharField(max_length=255)
     phone = models.CharField(max_length=15,unique=True)
     email = models.EmailField(max_length=255, null=True, blank=True)
     blood_group = models.CharField(max_length=4,choices=BLOOD_GROUP, default='o+')
-    birth_date = models.DateField(null=True, blank=True)
+    birth_date = models.DateField()
     present_address = models.CharField(max_length=255)
     permanent_address = models.CharField(max_length=255,null=True, blank=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES,default='d')
+    class Meta:
+        abstract = True
+class Donor(ContactInfo):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES,default='d')
     blood_donor_status = models.BooleanField(default=True,help_text='Ready Now?',verbose_name="Is Physical Condition Good ?")
     objects = models.QuerySet()
     
-    class Meta:
+    class Meta(ContactInfo.Meta):
         ordering=['-created_date']
         verbose_name = 'Donor List'
 
@@ -66,24 +72,23 @@ class Donor(models.Model):
     
     def last_donation_date(self):
         obj = self.blood_donation_details.order_by('-created_date').filter()[:1]
-        print(obj)
         d_date = ''
         for ob in obj:
             d_date = ob.donation_date
         return d_date
-
+    @property
     def is_physical_condition(self): 
         last_date = self.last_donation_date()
         day_count = 0
         if last_date:
             delta = datetime.date.today() - parse_date(str(last_date))
             day_count = delta.days
-            if day_count>40:
+            if day_count>=40:
                 return True
             else:
                 return False
         else:
-             return True
+             return self.blood_donor_status
          
              
     def __str__(self):
@@ -102,6 +107,30 @@ class BloodDonation(models.Model):
 
     def __str__(self):
         return f"{self.donor.name + ' '+ str(self.donation_date)}"
+    
+
+RELEGION_CHOICES = [
+    ('i', 'Islam'),
+    ('h', 'Hindu'),
+    ('k', 'Khristan'),
+    ('o', 'Others'),
+]
+
+class Member(models.Model):
+    donor = models.OneToOneField(Donor, on_delete=models.CASCADE,related_name='org_member',verbose_name="Related Donor Info")
+    nid_or_birthday_no = models.CharField(max_length=100,help_text='Add your NID number or Birthday Number',null=True,blank=True)
+    father_name = models.CharField(max_length=250)
+    mother_name = models.CharField(max_length=250)
+    educational_status = models.CharField(max_length=250,help_text='S.S.C or H.S.C or B.S.C')
+    occupation = models.CharField(max_length=250,help_text='Student/Business/Farmer/..')
+    relegion = models.CharField(max_length=1, choices=RELEGION_CHOICES,default='i')
+    facebook_link = models.CharField(max_length=1000,null=True,blank=True)
+    image = models.ImageField(upload_to='images/member/', null=True, blank=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True) 
+     
+    def __str__(self):
+        return f"{ self.donor.name+' -'+self.donor.phone}"
     
 
 

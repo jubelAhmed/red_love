@@ -3,7 +3,7 @@ from django.utils.html import format_html
 import datetime
 from django.utils.dateparse import parse_date
 
-from .models import Donor,BloodDonation
+from .models import Donor,BloodDonation,Member
 
 # Header and title change
 admin.site.site_header = 'Red Love Blood Society Admin' 
@@ -90,7 +90,7 @@ class DonorAdmin(admin.ModelAdmin):
     
     
 
-# admin.site.register(BloodDonation)
+admin.site.register(Member)
 
 
   

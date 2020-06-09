@@ -116,4 +116,4 @@ venv.bak/
 # databse
 db.sqlite3
 
-webpackdonation/node_modules
+/webpackdonation/node_modules

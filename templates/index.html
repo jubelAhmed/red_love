@@ -215,16 +215,16 @@
             {%  for donor in donor_list %}
 
              <tr>
-                 <td>{{donor.name}}</td>
-                 <td>{{donor.blood_group}}</td>
+                 <td>{{donor.name|title}}</td>
+                 <td>{{donor.blood_group|upper}}</td>
                  <td>{{donor.phone}}</td>
                  {% if donor.is_physical_condition %}
-                    <td class="bg-success text-white"><i class="fas fa-hand-peace text-white"></i>প্রস্তুত</td>
+                    <td class="bg-success text-white"><i class="fas fa-hand-peace"></i>প্রস্তুত</td>
                  {%else %}
-                     <td class="bg-danger text-white">অপ্রস্তুত</td>
+                     <td style="min-width:80px" class="bg-danger text-white"><i class="fas fa-times-circle"></i>অপ্রস্তুত</td>
                 {% endif %}
-                 <td>{{donor.present_address}}</td>
-                 <td>{{donor.permanent_address}}</td>
+                 <td>{{donor.present_address|title}}</td>
+                 <td>{{donor.permanent_address|title}}</td>
              </tr>
             {% endfor %}
              

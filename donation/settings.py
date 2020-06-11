@@ -36,6 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.donor',
+    'apps.information',
+    'simple_history',
+    'cuser',
+
+
 ]
 
 MIDDLEWARE = [
@@ -46,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
     
 ]
 
@@ -143,3 +149,4 @@ MESSAGE_TAGS = {
 MESSAGE_LEVEL = 25
 
 
+AUTH_USER_MODEL = 'cuser.CUser'

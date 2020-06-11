@@ -20,12 +20,18 @@ from django.views.generic import RedirectView
 
 # for static
 from django.conf import settings
+from django.conf.urls import include, url
 from django.conf.urls.static import static
+from django.contrib.auth.views import LoginView
+from cuser.forms import AuthenticationForm
 
 urlpatterns = [
     path('admin/', admin.site.urls ),
     path('donor/', include('apps.donor.urls')),
+    path('blood-news/', include('apps.information.urls')),
     path('', RedirectView.as_view(url='donor/')),
+    url(r'^accounts/login/$', LoginView.as_view(authentication_form=AuthenticationForm), name='login'),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

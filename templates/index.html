@@ -23,6 +23,96 @@
 
      }
 
+    
+
+     h2 {
+         font-size: 1.25rem;
+     }
+
+     ul {
+         list-style: none;
+         margin: 0;
+         padding: 0;
+     }
+
+     .org-info .toutiao-wrap {
+         border: 1px solid #ccc;
+         width: 100%;
+     }
+
+     .org-info .toutiao {
+         width: 100%;
+         height: 50px;
+         overflow: hidden;
+         
+     }
+
+     .org-info .toutiao ul {
+         width: 100%
+     }
+
+     .org-info .toutiao ul li {
+         width: 100%;
+         height: 48px
+     }
+
+     .org-info .toutiao p {
+         width: 100%;
+         height: 40px;
+         overflow: hidden
+     }
+
+     .org-info .toutiao a {
+         text-decoration: none
+     }
+
+     .org-info .toutiao a:hover {
+         color: #F60
+     }
+
+     .org-info .toutiao a:hover i {
+         color: #F60
+     }
+
+     .org-info .toutiao i {
+         margin-right: 5px;
+         color: #F60
+     }
+
+     @media screen and (min-width: 490px) {
+        .org-info2 {   
+            height: 48px;
+            
+        }
+     }
+
+     @media screen and (max-width: 480px) {
+        .org-info2 {
+            
+            height: 140px;
+          
+            
+        }
+        .org-info .toutiao {
+            width: 100%;
+            height: 140px;
+            overflow: hidden;
+            
+        }
+        .org-info .toutiao ul li {
+            width: 100%;
+            height: 140px
+        }
+   
+        .org-info .toutiao p {
+            width: 100%;
+            height: 140px;
+           
+            overflow: hidden;
+        }
+     }
+
+
      .swiper-container {
          width: 100%;
          height: 100%;
@@ -82,30 +172,59 @@
          overflow: hidden
      }
 
-    /* #example_filter{
+     /* #example_filter{
          font-weight: 900;
          font-size: 20px;
      }*/
 
+     .new-style {
+         height: 800px;
+     }
  </style>
+
 
 
 
  <!-- header -->
 
 
- <div class="swiper-container header-slide-widgets p-0"
+ <div class="swiper-container swiper_1 header-slide-widgets p-0"
      style="background-color: rgb(76, 91, 173);background:url('/static/images/bg-4.jpg') no-repeat center ;">
      <div class="transparent-bgopc m-0">
          <div class="swiper-wrapper ">
              <div class="swiper-slide text-center  ">
 
                  <div class="title text-white " style="font-family: titlefont !important ;" data-swiper-parallax="-300">
-                     <span class="" >রেড লাভ ব্লাড সোসাইটি , নরসিংপুর </span></div>
-                 <div class="subtitle text-warning" data-swiper-parallax="-200">নরসিংপুর এর রক্ত সহায়তার বিশ্বস্ত
+                     <span class="">রেড লাভ ব্লাড সোসাইটি , নরসিংপুর </span></div>
+                 <div class="subtitle text-warning font-weight-bold" data-swiper-parallax="-200">নরসিংপুর এর রক্ত
+                     সহায়তার বিশ্বস্ত
                      প্রতিষ্ঠান </div>
-                 <div class="text-center p-3 " data-swiper-parallax="-100">
-                     <p> এখানে নরসিংপুর ইউনিয়নের সকল ব্লাড ডোনারদের একসাথে করার লক্ষে আমরা কাজ করে যাচ্ছি </p>
+                 <div class="text-center p-3 font-weight-bold " data-swiper-parallax="-100">
+                     
+
+                     <div class="org-info">
+
+                         <div class="toutiao org-info2 mt-2" id="org_h_id" style="font-family: Arial, Helvetica, sans-serif;">
+                             <ul class="">
+                                 <li>
+                                     <p><i class="fas fa-bell"></i>এখানে নরসিংপুর ইউনিয়নের সকল ব্লাড ডোনারদের একসাথে করার লক্ষে আমরা কাজ করে যাচ্ছি</p>
+                                 </li>
+                                 <li>
+                                     <p><i class="fas fa-bell"></i> সকল ব্লাড ডোনারদের খুজতে নিচে যান এবং ব্লাড গ্রুপ লিখে সার্চ করুণ</p>
+                                 </li>
+                                 <li>
+                                     <p><i class="fas fa-bell"></i> ব্লাড ডোনার খুজে না পেলে আমাদের মোবাইল নাম্বার এ যোগাযোগ করুন </p>
+                                 </li>
+                                 <li>
+                                     <p><i class="fas fa-bell"></i> যারা ডোনার হতে চান তারা আমাদের সাথে যোগ দিন  </p>
+                                 </li>
+
+                             </ul>
+                         </div>
+
+
+
+                     </div>
                  </div>
              </div>
 
@@ -123,67 +242,83 @@
  <!-- inspiration -->
 
  <div class="jumbotron">
-    <div class="row">
+     <div class="row">
 
-       <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
-        <div class="card " style="border:none;" >
-            <div class="text-center ">
-                <img class="rounded" width="100%" height="200px" src="{% static 'images/blood-1.jpg' %}" alt="">
-            </div>
-            <div class="card-body text-center " >
-                <h5 class="card-title text-danger" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"> “স্বেচ্ছায় রক্তদান করুন,
-                    মুমূর্ষ রোগীর মুখে হাঁসি ফোটান”</h5>
-                 <p class="card-text text-dark"  > আপনার রক্তদানে বাচাতে পারে একটা জীবন । ফুটাতে পারে তার প্রিয়জনের মুখের হাসি। নিয়মিত রক্তদানের মাধ্যমে নিজের শরীরে কোনো রোগ আছে কিনা তা জানা যায়। </p>
-              
-            </div>
-          </div>
-       </div>
+         <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
+             <div class="card " style="border:none;min-height:445px">
+                 <div class="text-center ">
+                     <img class="rounded" width="100%" height="200px" src="{% static 'images/blood-1.jpg' %}" alt="">
+                 </div>
+                 <div class="card-body text-center ">
+                     <h5 class="card-title text-danger "
+                         style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;line-height:26px;">
+                         স্বেচ্ছায় রক্তদান করুন,
+                         মুমূর্ষ রোগীর মুখে হাঁসি ফোটান</h5>
+                     <p class="card-text text-dark" style="line-height:26px"> আপনার রক্তদানে বাচাতে পারে একটা জীবন ।
+                         ফুটাতে পারে তার প্রিয়জনের মুখের হাসি। নিয়মিত রক্তদানের মাধ্যমে নিজের শরীরে কোনো রোগ আছে কিনা
+                         তা জানা যায়। </p>
 
-       <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
-        <div class="card "  style="border:none;" >
-            <div class="text-center ">
-                <img class="rounded" width="100%" height="200px" src="{% static 'images/blood-2.jpg' %}" alt="">
-            </div>
-            <div class="card-body text-center ">
-                <h5 class="card-title text-info" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">  “সুস্থ থাকলে করুন রক্তদান,
-                    হার্ট এ্যাটাকের ঝুকি কমান”</h5>
-                 <p class="card-text text-dark"> নিয়মিত রক্তদান করলে হৃদরোগ ও হার্ট অ্যাটাকের ঝুঁকি অনেকটাই কমে যায় এবং ওজন কমানোর ক্ষেত্রেও এটি গুরুত্বপূর্ণ ভূমিকা রাখতে পারে।  </p>
-              
-            </div>
-          </div>
-       </div>
+                 </div>
+             </div>
+         </div>
 
-       <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
-        <div class="card "  style="border:none;" >
-            <div class="text-center ">
-                <img class="rounded"width="100%" height="200px" src="{% static 'images/blood-3.jpg' %}" alt="">
-            </div>
-            <div class="card-body text-center text-info">
-                <h5 class="card-title text-danger" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">  “যারা নিয়মিত রক্ত দিবে,
-                    তাদের ক্যান্সারের ঝুকি কমবে”</h5>
-                 <p class="card-text text-dark"  > যারা বছরে দুই বার রক্ত দেয়, অন্যদের তুলনায় তাদের ক্যান্সারে আক্রান্ত হওয়ার ঝুঁকি কম থাকে। ফুসফুস, লিভার, কোলন, পাকস্থলী ও গলার ক্যান্সারের ঝুঁকি কমায়। </p>
-              
-            </div>
-          </div>
-       </div>
-       <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
-        <div class="card "  style="border:none;">
-            <div class="text-center">
-                <img class="rounded" width="100%" height="200px" src="{% static 'images/card-1.jpg' %}" alt="">
-            </div>
-            <div class="card-body text-center text-info">
-                <h5 class="card-title text-primary" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"> “দেহের রোগ প্রতিরোধ ক্ষমতা বৃদ্ধি করতে চান, 
-                    তাহলে রক্তদান করুন”</h5>
-                 <p class="card-text text-dark"  >রক্তদান স্বাস্থ্যের জন্য অত্যন্ত উপকারী। রক্তদান করার মাত্র ৪৮ ঘণ্টার মধ্যেই দেহে রক্তের পরিমাণ স্বাভাবিক হয়ে যায়।প্রতি চারমাসে মানবদেহে নতুন রক্ত তৈরি হয়। </p>
-              
-            </div>
-          </div>
-       </div>
+         <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
+             <div class="card " style="border:none;min-height:445px">
+                 <div class="text-center ">
+                     <img class="rounded" width="100%" height="200px" src="{% static 'images/blood-2.jpg' %}" alt="">
+                 </div>
+                 <div class="card-body text-center ">
+                     <h5 class="card-title text-info"
+                         style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;line-height:26px;">
+                         সুস্থ থাকলে করুন রক্তদান,
+                         হার্ট এ্যাটাকের ঝুকি কমান</h5>
+                     <p class="card-text text-dark" style="line-height:26px"> নিয়মিত রক্তদান করলে হৃদরোগ ও হার্ট
+                         অ্যাটাকের ঝুঁকি অনেকটাই কমে যায় এবং ওজন কমানোর ক্ষেত্রেও এটি গুরুত্বপূর্ণ ভূমিকা রাখতে পারে।
+                     </p>
 
-        
-        </div>
-    
-</div>
+                 </div>
+             </div>
+         </div>
+
+         <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
+             <div class="card " style="border:none;min-height:445px">
+                 <div class="text-center ">
+                     <img class="rounded" width="100%" height="200px" src="{% static 'images/blood-3.jpg' %}" alt="">
+                 </div>
+                 <div class="card-body text-center text-info">
+                     <h5 class="card-title text-danger"
+                         style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;line-height:26px;">
+                         যারা নিয়মিত রক্ত দিবে,
+                         তাদের ক্যান্সারের ঝুকি কমবে</h5>
+                     <p class="card-text text-dark" style="line-height:26px"> যারা বছরে দুই বার রক্ত দেয়, অন্যদের
+                         তুলনায় তাদের ক্যান্সারে আক্রান্ত হওয়ার ঝুঁকি কম থাকে। ফুসফুস, লিভার, কোলন, পাকস্থলী ও গলার
+                         ক্যান্সারের ঝুঁকি কমায়। </p>
+
+                 </div>
+             </div>
+         </div>
+         <div class="col-lg-3 col-md-4 col-sm-12 text-center mb-2">
+             <div class="card " style="border:none;min-height:445px">
+                 <div class="text-center">
+                     <img class="rounded" width="100%" height="200px" src="{% static 'images/card-1.jpg' %}" alt="">
+                 </div>
+                 <div class="card-body text-center text-info">
+                     <h5 class="card-title text-primary"
+                         style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                         দেহের রোগ প্রতিরোধ ক্ষমতা বৃদ্ধি করতে চান,
+                         তাহলে রক্তদান করুন</h5>
+                     <p class="card-text text-dark" style="line-height:26px">রক্তদান স্বাস্থ্যের জন্য অত্যন্ত উপকারী।
+                         রক্তদান করার মাত্র ৪৮ ঘণ্টার মধ্যেই দেহে রক্তের পরিমাণ স্বাভাবিক হয়ে যায়।প্রতি চারমাসে
+                         মানবদেহে নতুন রক্ত তৈরি হয়। </p>
+
+                 </div>
+             </div>
+         </div>
+
+
+     </div>
+
+ </div>
 
  <!-- endinspiration -->
 
@@ -213,22 +348,23 @@
          </thead>
          <tbody style="font-family: Georgia, 'Times New Roman', Times, serif;">
 
-            {%  for donor in donor_list %}
+             {%  for donor in donor_list %}
 
              <tr>
                  <td>{{donor.name|title}}</td>
                  <td>{{donor.blood_group|upper}}</td>
                  <td>{{donor.phone}}</td>
                  {% if donor.is_physical_condition %}
-                    <td class="bg-success text-white"><i class="fas fa-hand-peace"></i>প্রস্তুত</td>
+                 <td class="bg-success text-white"><i class="fas fa-hand-peace"></i>প্রস্তুত</td>
                  {%else %}
-                     <td style="min-width:80px" class="bg-danger text-white"><i class="fas fa-times-circle"></i>অপ্রস্তুত</td>
-                {% endif %}
+                 <td style="min-width:80px" class="bg-danger text-white"><i class="fas fa-times-circle"></i>অপ্রস্তুত
+                 </td>
+                 {% endif %}
                  <td>{{donor.present_address|title}}</td>
                  <td>{{donor.permanent_address|title}}</td>
              </tr>
-            {% endfor %}
-             
+             {% endfor %}
+
          </tbody>
          <tfoot>
              <tr>
@@ -258,18 +394,18 @@
          var table = $('#example').DataTable({
              "scrollX": true,
              "language": {
-                "lengthMenu": "প্রত্যেক পেজ এ _MENU_ টি তথ্য দেখাবে",
-                "zeroRecords": "কিছুই পাই নাই , দুঃখিত ",
-                "info": "সকল পেজ এ তথ্য দেখাবে",
-                "infoEmpty": "আর তথ্য নেই",
-                "infoFiltered": "(filtered from _MAX_ total records)",
-                "search":         "অনুসন্ধান:",
-                "paginate": {
-                "first":      "প্রথম",
-                "last":       "শেষ",
-                "next":       "পরবর্তী",
-                "previous":   "পূর্বে"
-                },
+                 "lengthMenu": "প্রত্যেক পেজ এ _MENU_ টি তথ্য দেখাবে",
+                 "zeroRecords": "কিছুই পাই নাই , দুঃখিত ",
+                 "info": "সকল পেজ এ তথ্য দেখাবে",
+                 "infoEmpty": "আর তথ্য নেই",
+                 "infoFiltered": "(filtered from _MAX_ total records)",
+                 "search": "অনুসন্ধান:",
+                 "paginate": {
+                     "first": "প্রথম",
+                     "last": "শেষ",
+                     "next": "পরবর্তী",
+                     "previous": "পূর্বে"
+                 },
              },
 
          });
@@ -284,6 +420,44 @@
 
 
 
+     });
+
+     /* add swiper slide  */
+     var swiper = new Swiper('swiper_1', {
+         spaceBetween: 30,
+         centeredSlides: true,
+         autoplay: {
+             delay: 10000,
+             disableOnInteraction: false,
+         },
+         pagination: {
+             el: '.swiper-pagination',
+             clickable: true,
+         },
+         navigation: {
+             nextEl: '.swiper-button-next',
+             prevEl: '.swiper-button-prev',
+         },
+     });
+
+
+     /* vertical loop */
+     /* $('.org-info1').verticalLoop({
+         delay: 2000,
+         order: 'asc'
+     }); */
+
+     //setTimeout(function () {
+         //$('.org-info1').verticalLoop('autoPause');
+     ///}, 10 * 1000);
+
+
+     var verticalLoop = new VerticalLoop('.org-info2', {
+         delay: 3000,
+         order: 'desc',
+         oninitend: function (res) {
+             console.log(res);
+         }
      });
  </script>
 

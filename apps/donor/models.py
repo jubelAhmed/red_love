@@ -1,8 +1,11 @@
 from django.db import models
+from django.conf import settings
+
 from django.urls import reverse
 from django.utils.html import format_html
 import datetime
 from django.utils.dateparse import parse_date
+from simple_history.models import HistoricalRecords
 
 # Create your models here.
 
@@ -39,16 +42,25 @@ class ContactInfo(models.Model):
 class Donor(ContactInfo):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
-    blood_donor_status = models.BooleanField(default=True,help_text='Ready Now?',verbose_name="Is Physical Condition Good ?")
+    blood_donor_status = models.BooleanField(default=True,help_text='Your health is good?',verbose_name="Health Good")
+    history = HistoricalRecords()
+    changed_by = models.ForeignKey(settings.AUTH_USER_MODEL,models.SET_NULL,null=True,blank=True)
     objects = models.QuerySet()
     
     class Meta(ContactInfo.Meta):
         ordering=['-created_date']
         verbose_name = 'Donor List'
-
     
-    def get_absolute_url(self):
-        return reverse('donor-detail',args=[str(self.id)])
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+    
+    # def get_absolute_url(self):
+    #     return reverse('donor-detail',args=[str(self.id)])
     def get_status(self):
         color_code = '#ffffff'
         status = ''
@@ -83,7 +95,7 @@ class Donor(ContactInfo):
         if last_date:
             delta = datetime.date.today() - parse_date(str(last_date))
             day_count = delta.days
-            if day_count>=40:
+            if day_count>=120:
                 return True
             else:
                 return False
@@ -128,7 +140,17 @@ class Member(models.Model):
     image = models.ImageField(upload_to='images/member/', null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True) 
-     
+    changed_by = models.ForeignKey(settings.AUTH_USER_MODEL,models.SET_NULL,null=True,blank=True)
+    history = HistoricalRecords()
+    
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+
     def __str__(self):
         return f"{ self.donor.name+' -'+self.donor.phone}"
     

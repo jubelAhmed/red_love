@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 import datetime
 from django.utils.dateparse import parse_date
+from simple_history.admin import SimpleHistoryAdmin
 
 from .models import Donor,BloodDonation,Member
 
@@ -45,8 +46,8 @@ make_physical_bad.short_description = 'Make selected donor physical condition ba
         
 
 @admin.register(Donor)
-class DonorAdmin(admin.ModelAdmin):
-    list_display = ('name','phone','blood_group','physical_condition','birth_date','last_donation_date','total_donate','get_status')
+class DonorAdmin(SimpleHistoryAdmin):
+    list_display = ('name','phone','blood_group','physical_condition_next_donation','birth_date','last_donation_date','total_donate','get_status','blood_donor_status')
     list_display_links = ('name', 'blood_group','get_status')
     list_filter = ['blood_group']
     search_fields = ('name','phone','blood_group','status')
@@ -76,7 +77,7 @@ class DonorAdmin(admin.ModelAdmin):
         
     )
     
-    def physical_condition(self,obj):
+    def physical_condition_next_donation(self,obj):
         if obj.is_physical_condition:
             return format_html(     
                 '<img src="/static/admin/img/icon-yes.svg" alt="True">',
@@ -86,11 +87,11 @@ class DonorAdmin(admin.ModelAdmin):
                 '<img src="/static/admin/img/icon-no.svg" alt="False">',
             )
          
-    physical_condition.short_description = 'Physical Condition'
+    physical_condition_next_donation.short_description = 'Next Donate Time Reached'
     
     
 
-admin.site.register(Member)
+admin.site.register(Member,SimpleHistoryAdmin)
 
 
   

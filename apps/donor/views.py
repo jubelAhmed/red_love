@@ -4,12 +4,16 @@ from .models import Donor
 
 def home(request):
     total_donor = Donor.objects.filter(status='p').count()
-    donor_list = Donor.objects.order_by('name').filter(status='p')
+    donor_list = Donor.objects.order_by('name').filter(status='p',blood_donor_status=True)
     context = {
         'total_donor' : total_donor,
         'donor_list' : donor_list,
+        'nbar':'home'
     }
     return render(request,'index.html',context)
+
+def organisation(request):
+    return render(request,'donor/organisation.html')
 
 # def home1(request):
     

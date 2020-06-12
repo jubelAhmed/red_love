@@ -27,8 +27,8 @@
             <li class="nav-item {% if nbar == 'news' %} active {% endif %} ">
                 <a class="nav-link text-warning" style="font-weight: bold;"  href="{% url 'blood_news' %}"><i class="far fa-copy"></i> তথ্য </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link text-warning" style="font-weight: bold;"  href="javascript:void(0);"><i class="far fa-address-book"></i>প্রতিষ্টান</a>
+            <li class="nav-item {% if nbar == 'org' %} active {% endif %}">
+                <a class="nav-link text-warning" style="font-weight: bold;"  href="{% url 'organisation' %}"><i class="far fa-address-book"></i>প্রতিষ্টান</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-warning" style="font-weight: bold;"  href="#contact"><i class="far fa-clone"></i> যোগাযোগ </a>

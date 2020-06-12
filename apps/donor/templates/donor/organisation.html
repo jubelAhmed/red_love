@@ -131,7 +131,7 @@
 <div class="container px-4 py-4">
 
     <div class="bg-white" ">
-        <h5 class="p-2 text-white font-weight-bold text-center mb-0" style="background-color: rgb(27, 37, 92)"> আমাদের লক্ষ্য ও উদ্দেশ্য </h5>
+        <h5 class="p-2 text-white font-weight-bold text-center mb-0" style="background-color: rgb(27, 37, 92)">  লক্ষ্য ও উদ্দেশ্য </h5>
 
         <div class="">
 
@@ -151,8 +151,8 @@
 
 <!-- Swiper org gallery -->
 
-    <div class=" bg-white py-4" style="margin: 0px !important;">
-        <h5 class="p-2 text-white font-weight-bold text-center " style="background-color: rgb(27, 37, 92);">আমাদের কার্যক্রম ও স্মৃতিসমুহ </h5>
+    <div class=" bg-white py-5" style="margin: 0px !important;">
+        <h5 class="p-2 text-white font-weight-bold text-center " style="background-color: rgb(27, 37, 92);"> কার্যক্রম ও স্মৃতিসমুহ </h5>
         <div class="swiper-container gallery-top ">
 
             <div class="swiper-wrapper ">
@@ -184,43 +184,32 @@
 </div>
 
 
-<div class="container px-4 my-3 bg-light">
-    <h5 class="p-2 text-white font-weight-bold text-center" style="background-color: rgb(27, 37, 92)">রেড লাভ সদস্য </h5>
+<div class="container px-4 my-3 ">
+    <h5 class="p-2 text-white font-weight-bold text-center" style="background-color: rgb(27, 37, 92)">রেড লাভ পরিবার </h5>
     <div class="row">
+        {% load cropping %}
+
+        {% for member in member_list  %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="our-team">
                 <div class="picture" >
-                    <img class="img-fluid"  src="{% static 'images/hands.png' %}">
+                    <img class="img-fluid"  src="{% cropped_thumbnail member "cropping" scale=0.5 %}">
                 </div>
                 <div class="team-content ">
-                    <h5 class="name font-weight-bold">জুবেল আহমেদ</h4>
+                    <h5 class="name font-weight-bold">{{member.donor.name}}</h4>
                     <h6 class="title"> সদস্য </h6>
                 </div>
                 <ul class="social">
-                    <li><a href="#" class="fab fa-facebook" aria-hidden="true" target="_blank" ><span class="pl-1">facebook</span></a>
+                    <li><a href="{% if member.facebook_link %} {{member.facebook_link}} {%else %}#{% endif %}" class="fab fa-facebook" aria-hidden="true" target="_blank" ><span class="pl-1">facebook</span></a>
                     </li>
-                    <li class="text-white fas fa-phone "><span class="pl-1">01742234926</span></li>
+                    <li class="text-white fas fa-phone "><span class="pl-1">{{member.donor.phone}}</span></li>
                     
                 </ul>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team">
-                <div class="picture">
-                    <img class="img-fluid" src="{% static 'images/card-1.jpg' %}">
-                </div>
-                <div class="team-content ">
-                    <h5 class="name font-weight-bold">জুবেল আহমেদ</h4>
-                    <h6 class="title"> সদস্য </h6>
-                </div>
-                <ul class="social">
-                    <li><a href="#" class="fab fa-facebook" aria-hidden="true" target="_blank" ><span class="pl-1">facebook</span></a>
-                    </li>
-                    <li class="text-white fas fa-phone "><span class="pl-1">01742234926</span></li>
-                    
-                </ul>
-            </div>
-        </div>
+
+        {% endfor %}
+      
       
     </div>
 </div>

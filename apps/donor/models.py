@@ -6,6 +6,8 @@ from django.utils.html import format_html
 import datetime
 from django.utils.dateparse import parse_date
 from simple_history.models import HistoricalRecords
+from image_cropping import ImageRatioField
+
 
 # Create your models here.
 
@@ -138,6 +140,9 @@ class Member(models.Model):
     relegion = models.CharField(max_length=1, choices=RELEGION_CHOICES,default='i')
     facebook_link = models.CharField(max_length=1000,null=True,blank=True)
     image = models.ImageField(upload_to='images/member/', null=True, blank=True)
+    # size is "width x height"
+    cropping = ImageRatioField('image', '130x130')
+
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True) 
     changed_by = models.ForeignKey(settings.AUTH_USER_MODEL,models.SET_NULL,null=True,blank=True)

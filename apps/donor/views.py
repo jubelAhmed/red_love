@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import Donor
+from django.views import generic
+
+from .models import Donor,Member
 # Create your views here.
 
 def home(request):
@@ -12,8 +14,22 @@ def home(request):
     }
     return render(request,'index.html',context)
 
-def organisation(request):
-    return render(request,'donor/organisation.html')
+class OrganisationView(generic.ListView):
+    model = Member
+    context_object_name = 'member_list'   # your own name for the list as a template 
+    template_name = 'donor/organisation.html'
+    paginate_by = 10
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get the context
+        context = super(OrganisationView, self).get_context_data(**kwargs)
+        # Create any data and add it to the context
+        context['nbar'] = 'org'
+        return context
+
+    # def get_queryset(self):
+    #     return Member.objects.filter(title__icontains='war')[:5] 
+# def organisation(request):
+#     return render(request,'donor/organisation.html')
 
 # def home1(request):
     

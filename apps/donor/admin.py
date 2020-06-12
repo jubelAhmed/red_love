@@ -3,6 +3,7 @@ from django.utils.html import format_html
 import datetime
 from django.utils.dateparse import parse_date
 from simple_history.admin import SimpleHistoryAdmin
+from image_cropping import ImageCroppingMixin
 
 from .models import Donor,BloodDonation,Member
 
@@ -91,7 +92,9 @@ class DonorAdmin(SimpleHistoryAdmin):
     
     
 
-admin.site.register(Member,SimpleHistoryAdmin)
+class MemberAdmin(ImageCroppingMixin, SimpleHistoryAdmin):
+    pass
+admin.site.register(Member,MemberAdmin)
 
 
   

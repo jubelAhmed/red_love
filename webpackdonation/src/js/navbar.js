@@ -32,7 +32,7 @@ $(document).ready(function(){
   setTimeout(function(){ test(); });
 });
 $(window).on('resize', function(){
-  setTimeout(function(){ test(); }, 0);
+  setTimeout(function(){ test(); }, 500);
 });
 $(".navbar-toggler").click(function(){
   setTimeout(function(){ test(); });

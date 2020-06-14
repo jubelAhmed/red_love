@@ -8,10 +8,14 @@
                 <div class="col-md-5 col-sm-12">
                     <div class="row">
                         <div class="col-md-6 col-sm-12 border-bottom border-info mb-5 pb-3 ">
-                            <section>
+                            <section class="">
                                 <h4 class="text-info"> <i class="fa fa-address-book" aria-hidden="true"></i> মোবাইল </h3>
                                 <p class="pl-2" style="margin-left: 2rem;">
-                                    ০১৭৪২২৩৪৯২৬
+                                    {% for phone_list in contacts.phonelist.all %}
+                                    <a href="tel:{{phone_list.phone}}">{{phone_list.phone}}</a><br>
+                                    
+                                    {% endfor %}
+                                  
                                 </p>
                             </section>
                         </div>
@@ -19,7 +23,12 @@
                             <section>
                                 <h4 class="text-info"> <i class="fa fa-address-book" aria-hidden="true"></i> ইমেইল</h3>
                                 <p class="pl-2" style="margin-left: 2rem;">
-                                    jubel8180@gmail.com
+                                    {% for email_list in contacts.emaillist.all %}
+                                    <a href="mailto:{{email_list.email}}">{{email_list.email}}</a><br>
+                                    
+                                    {% endfor %}
+                                    
+
                                 </p>
                             </section>
                         </div>
@@ -27,7 +36,7 @@
                             <section>
                                 <h4 class="text-info"> <i class="fas fa-address-card"></i> ঠিকানা</h3>
                                 <p class="pl-2" style="margin-left: 2rem;">
-                                    নরসিংপুর, দোয়ারা বাজার , সুনামগঞ্জ
+                                    {{contacts.address}}
                                 </p>
                             </section>
                         </div>
@@ -37,9 +46,9 @@
                                 <p class="pl-2 " style="margin-left: 2rem; ">
                                     <div class="d-flex flex-row">
                                         <div class="p-2 data-toggle="tooltip" data-placement="top" title="ফেসবুক""> 
-                                            <a class="text-primary" href=""> <i class="fab fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+                                            <a class="text-primary" href=" {{contacts.fb_group_link}}" target="_blank"> <i class="fab fa-facebook-square fa-2x" aria-hidden="true" ></i></a>
                                         </div>
-                                        <div class="p-2 data-toggle="tooltip" data-placement="top" title="হোয়াটসঅ্যাপ""><a style="color: #1EAB;" href=""> <i class="fab fa-whatsapp-square fa-3x"></i> </a></div>
+                                        <!-- <div class="p-2 data-toggle="tooltip" data-placement="top" title="হোয়াটসঅ্যাপ""><a style="color: #1EAB;" href=""> <i class="fab fa-whatsapp-square fa-3x"></i> </a></div> -->
                                        
                                       </div>
                                 </p>
@@ -95,9 +104,9 @@
                     <p class="m-0">
                         Copyright &copy;<script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | This is made for bangladesh <i
+                        </script> All rights reserved | This is made for Bangladesh <i
                             class="text-danger fa fa-heart" aria-hidden="true"></i> <span class="pl-0">Developed
-                            by</span> <a href="#" target="_blank">Jubel Ahmed</a>
+                            by</span> <a href="https://web.facebook.com/jubel4926" target="_blank">Jubel Ahmed</a>
                     </p>
                 </div>
             </div><!-- .row -->

@@ -70,6 +70,8 @@
     }
 </style>
 
+{% load cropping %}
+
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner " style="width: 100%;">
@@ -156,13 +158,11 @@
         <div class="swiper-container gallery-top ">
 
             <div class="swiper-wrapper ">
-                <div class="swiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:300px">
-                    
-                </div>
-                <div class="swiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:300px"></div>
-                <div class="swiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:300px"></div>
-                <div class="swiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:300px"></div>
-                <div class="swiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:300px"></div>
+                {% for activity in org_activities %}
+                <div class="swiper-slide" style="background-image:url({% cropped_thumbnail activity "cropping" scale=0.5  %});height:300px"></div>
+                
+                {%endfor%}
+               
         
             </div>
             <!-- Add Arrows -->
@@ -171,11 +171,11 @@
         </div>
         <div class="swiper-container gallery-thumbs">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:200px"></div>
-                <div class="swiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:200px"></div>
-                <div class="wiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:200px"></div>
-                <div class="swiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:200px"></div>
-                <div class="swiper-slide" style="background-image:url(/static/images/bg-1.jpg);height:200px"></div>
+                {% for activity in org_activities %}
+                <div class="swiper-slide" style="background-image:url({% cropped_thumbnail activity "cropping" scale=0.5  %});height:200px"></div>
+                
+                {%endfor%}
+               
                
             </div>
         </div>
@@ -187,11 +187,10 @@
 <div class="container px-4 my-3 ">
     <h5 class="p-2 text-white font-weight-bold text-center" style="background-color: rgb(27, 37, 92)">রেড লাভ পরিবার </h5>
     <div class="row">
-        {% load cropping %}
 
         {% for member in member_list  %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team">
+            <div class="our-team bg-light">
                 <div class="picture" >
                     <!-- <img class="img-fluid" style="width: 130px;height:130px"  src="{{member.image.url}}"> -->
                     <img class="img-fluid" style="width: 130px;height:130px"  src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
@@ -199,8 +198,10 @@
 
                 </div>
                 <div class="team-content ">
-                    <h5 class="name font-weight-bold">{{member.donor.name}}</h4>
-                    <h6 class="title"> সদস্য </h6>
+                    <h5 class="name font-weight-bold text-info">{{member.donor.name}}</h4>
+                    <h6 class="title">{{member.occupation}}</h6>
+                    <h6 class="title">{{member.donor.blood_group}}</h6>
+                    
                 </div>
                 <ul class="social">
                     <li><a href="{% if member.facebook_link %} {{member.facebook_link}} {%else %}#{% endif %}" class="fab fa-facebook" aria-hidden="true" target="_blank" ><span class="pl-1">facebook</span></a>

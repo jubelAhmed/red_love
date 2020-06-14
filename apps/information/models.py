@@ -56,3 +56,42 @@ class Message(models.Model):
         
     def __str__(self):
         return self.name + '-'+self.phone + '-'+self.message
+    
+
+
+
+class PhoneList(models.Model):
+    name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=15)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return f"{self.name} - {self.phone}"
+    
+
+class EmailList(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return f"{self.name} - {self.email}"
+    
+class OrgContact(models.Model):
+    phonelist = models.ManyToManyField(
+        PhoneList
+    )
+    emaillist = models.ManyToManyField(
+        EmailList
+    )
+    address = models.CharField(max_length=255)
+    fb_group_link = models.URLField(max_length=1000)
+    # channel_link = models.CharField(max_length=255)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return f"{self.fb_group_link} - {self.address}"
+

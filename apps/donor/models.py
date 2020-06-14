@@ -182,3 +182,28 @@ class Member(models.Model):
     
 
 
+class OrgMemorie(models.Model):
+    title = models.CharField(max_length=250,null=True,blank=True)
+    place = models.CharField(max_length=250,null=True,blank=True)
+    image = models.ImageField(upload_to='images/memories/')
+    # size is "width x height"
+    cropping = ImageRatioField('image', '1200x800',free_crop=True)
+
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True) 
+    changed_by = models.ForeignKey(settings.AUTH_USER_MODEL,models.SET_NULL,null=True,blank=True)
+    history = HistoricalRecords()
+    
+    class Meta:
+        ordering = ['-created_date']
+    
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+        
+    def __str__(self):
+        return f"{self.image} {self.created_date}"

@@ -1,16 +1,24 @@
 from django.shortcuts import render
 from django.views import generic
 
-from .models import Donor,Member
+from .models import Donor,Member,OrgMemorie
+
+from apps.information.models import OrgContact
 # Create your views here.
+
+
+contact= OrgContact.objects.order_by('-created_date')[:1]
+contact_obj = contact[0]
 
 def home(request):
     total_donor = Donor.objects.filter(status='p').count()
     donor_list = Donor.objects.order_by('name').filter(status='p',blood_donor_status=True)
+    
     context = {
         'total_donor' : total_donor,
         'donor_list' : donor_list,
-        'nbar':'home'
+        'nbar':'home',
+        'contacts':contact_obj,
     }
     return render(request,'index.html',context)
 
@@ -24,6 +32,8 @@ class OrganisationView(generic.ListView):
         context = super(OrganisationView, self).get_context_data(**kwargs)
         # Create any data and add it to the context
         context['nbar'] = 'org'
+        context['contacts'] = contact_obj
+        context['org_activities'] = OrgMemorie.objects.filter()[0:10]
         return context
 
     # def get_queryset(self):

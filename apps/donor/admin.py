@@ -13,7 +13,7 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 
 
 
-from .models import Donor,BloodDonation,Member
+from .models import Donor,BloodDonation,Member,OrgMemorie
 
 # Header and title change
 admin.site.site_header = 'Red Love Blood Society Admin' 
@@ -173,6 +173,11 @@ class MemberAdmin(ImageCroppingMixin, SimpleHistoryAdmin,ImportExportModelAdmin)
 
     
 admin.site.register(Member,MemberAdmin)
+
+class OegMemoryAdmin(ImageCroppingMixin, SimpleHistoryAdmin):
+    pass
+    
+admin.site.register(OrgMemorie,OegMemoryAdmin)
 
 
 

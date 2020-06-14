@@ -1,15 +1,20 @@
 from django.shortcuts import render,HttpResponseRedirect,redirect
-from .models import BloodInformation,Message
 from django.contrib import messages
 from django.http import JsonResponse
 
+from .models import BloodInformation,Message,OrgContact
 # Create your views here.
 
 def blood_news(request):
     information = BloodInformation.objects.filter(status=True)
+    contact= OrgContact.objects.order_by('-created_date')[:1]
+    contact_obj = contact[0]
+    # print(contact_obj)
     context = {
         'information' : information,
         'nbar':'news',
+        'contacts':contact_obj,
+        
     }
     return render(request,'information/news.html',context)
 

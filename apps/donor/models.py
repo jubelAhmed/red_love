@@ -136,12 +136,12 @@ class Member(models.Model):
     father_name = models.CharField(max_length=250)
     mother_name = models.CharField(max_length=250)
     educational_status = models.CharField(max_length=250,help_text='S.S.C or H.S.C or B.S.C')
-    occupation = models.CharField(max_length=250,help_text='Student/Business/Farmer/..')
+    occupation = models.CharField(max_length=250,help_text='Student / Business / Farmer /..')
     relegion = models.CharField(max_length=1, choices=RELEGION_CHOICES,default='i')
     facebook_link = models.CharField(max_length=1000,null=True,blank=True)
     image = models.ImageField(upload_to='images/member/', null=True, blank=True)
     # size is "width x height"
-    cropping = ImageRatioField('image', '130x130')
+    cropping = ImageRatioField('image', '400x300',size_warning=True)
 
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True) 
@@ -155,9 +155,30 @@ class Member(models.Model):
     @_history_user.setter
     def _history_user(self, value):
         self.changed_by = value
+        
+    def donor_name(self):
+        return self.donor.name
+    donor_name.short_description = 'Name'
+
+    def donor_group(self):
+        return self.donor.blood_group
+    donor_group.short_description = 'Blood Group'
+    def donor_phone(self):
+        return self.donor.phone
+    donor_phone.short_description = 'Phone'
+
+    def donor_status(self):
+        return self.donor.status
+    donor_status.short_description = 'Donate Status'
+    
+    # def image_tag(self):
+    #     return format_html('<img src="{}" />'.format(self.image.url))
+
+    # image_tag.short_description = 'Image Privew'
+    # image_tag.allow_tags = True
 
     def __str__(self):
-        return f"{ self.donor.name+' -'+self.donor.phone}"
+        return f"{ self.donor.name +' - ' +self.donor.phone}"
     
 
 

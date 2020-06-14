@@ -79,7 +79,7 @@
                 <div class="text-center text-white m-5">
                     <h1 class="" style="font-family: titlefont !important;">রেড লাভ ব্লাড সোসাইটি , নরসিংপুর</h1>
                     <p class="py-3 font-weight-bold text-warning" style="line-height:26px;"> নরসিংপুর এর রক্ত সংকট
-                        মোকাবিলা করার জন্যে আমাদের প্রটিষ্ঠান সর্বদা কাজ করবে </p>
+                        মোকাবিলা করার জন্যে আমাদের প্রতিষ্ঠান সর্বদা কাজ করবে </p>
                 </div>
             </div>
 
@@ -101,7 +101,7 @@
                 <div class="text-center text-white m-5">
                     <h1 class="" style="font-family: titlefont !important;">রেড লাভ ব্লাড সোসাইটি , নরসিংপুর</h1>
                     <p class="p-3 font-weight-bold " style="line-height:26px;color:rgb(0, 255, 170)"> ইউনিয়নের প্রত্যেক
-                        টা জায়গায় গিয়ে আমরা ফ্রী তে রক্ত পরীক্ষা করার চেস্টা করব </p>
+                         জায়গায় গিয়ে আমরা ফ্রী তে রক্ত পরীক্ষা করার চেস্টা করব </p>
                 </div>
             </div>
 
@@ -193,7 +193,10 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="our-team">
                 <div class="picture" >
-                    <img class="img-fluid"  src="{% cropped_thumbnail member "cropping" scale=0.5 %}">
+                    <!-- <img class="img-fluid" style="width: 130px;height:130px"  src="{{member.image.url}}"> -->
+                    <img class="img-fluid" style="width: 130px;height:130px"  src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
+                    
+
                 </div>
                 <div class="team-content ">
                     <h5 class="name font-weight-bold">{{member.donor.name}}</h4>

@@ -1,6 +1,6 @@
    
-<footer class="site-footer" id="contact">
-    <div class="footer-widgets">
+<footer class="site-footer " id="contact">
+    <div class="footer-widgets bg-dark">
         <div class="container">
             <h2 style="color:#00BFF3">আপনারা প্রয়োজনে আমাদের সাথে যোগাযোগ করতে পারেন
             </h2>
@@ -50,13 +50,15 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-5 col-sm-12">
                     <h4 class="text-danger pb-2">আপনি জিজ্ঞাসা করতে চান ? </h4>
-                    <form>
+                    <form action="{% url 'message' %}" data-message-url="{% url 'message' %}" id="msg_form"
+                    enctype="multipart/form-data"  method="POST" >
+                         {% csrf_token %} 
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
   
-                                    <input type="name" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp" placeholder="আপনার নাম">
+                                    <input type="text" name="name" class="form-control" id="id_email"
+                                        aria-describedby="emailHelp" placeholder="আপনার নাম" required/>
   
                                 </div>
   
@@ -64,18 +66,17 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
   
-                                    <input type="text" class="form-control" id="exampleInputPassword1"
-                                        placeholder="মোবাইল">
+                                    <input type="text" name="phone" class="form-control" id="id_phone"
+                                        placeholder="মোবাইল" required/>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
   
-                            <textarea class="form-control" placeholder="বিস্তারিত" id="exampleFormControlTextarea1"
-                                rows="4"></textarea>
+                            <textarea name="message" class="form-control" placeholder="বিস্তারিত" id="id_message" rows="4" required></textarea>
                         </div>
                         <div class="">
-                            <button type="submit"  class="btn-lg btn-primary px-4">SEND</button>
+                            <button id="id_send_btn" type="submit"  class="btn-lg btn-primary px-4">SEND</button>
                             <button type="reset" class="btn-lg    btn-outline-primary">RESET</button>
                            
                         </div>
@@ -103,3 +104,4 @@
         </div><!-- .container -->
     </div><!-- .footer-bar -->
   </footer>
+

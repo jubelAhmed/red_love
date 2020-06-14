@@ -32,6 +32,7 @@
 
     <link rel="stylesheet" href="{% static 'css3-animate-it/css/animations.css'   %}">
     <link rel="stylesheet" href="{% static 'swiper/css/swiper.min.css'   %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
 
     <link rel="stylesheet" href="{% static 'css/slide-show.css' %}">
@@ -59,24 +60,62 @@
     {% include 'navbar.html' %}
 
     {% block content %}
-
+        
     {% endblock content %}
 
-     {% include 'footer.html' %}
+    {% include 'footer.html' %}
  
    
 
     <script src="{% static 'js/app.js' %}"></script>
     <script type="text/javascript" src="{% static 'css3-animate-it/js/css3-animate-it.js' %} "></script>
     <script src="{% static 'swiper/js/swiper.min.js' %}"></script>
-
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> 
 
     <script src="{% static 'custom/js/love.js' %}"></script>
     <script src="{% static 'custom/js/vertical-loop.js' %}"></script>
 
+    <script>
+        
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "500",
+            "hideDuration": "1000",
+            "timeOut": "2000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        $(document).ready(function() {
+            console.log("before world")
+            {% if messages %}
+                console.log("message shown")
+                {% for message in messages %}
+                    toastr.{{ message.tags }}('{{ message }}');
+                {% endfor %}
+            {% endif %}
+
+        });
+         
+
+
+       
+    </script>
+
+   
 
     {% block script %}
+   
+  
+   
     {% endblock script %}
 
 

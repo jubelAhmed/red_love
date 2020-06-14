@@ -1,5 +1,8 @@
-from django.shortcuts import render
-from .models import BloodInformation
+from django.shortcuts import render,HttpResponseRedirect,redirect
+from .models import BloodInformation,Message
+from django.contrib import messages
+from django.http import JsonResponse
+
 # Create your views here.
 
 def blood_news(request):
@@ -10,3 +13,48 @@ def blood_news(request):
     }
     return render(request,'information/news.html',context)
 
+def message(request):
+    name = request.POST.get('name')
+    phone = request.POST.get('phone')
+    message = request.POST.get('message')
+    print(name,phone,message)
+    if name and phone and message:
+        try:
+            msg = Message(
+            name=name,phone=phone,message=message
+            )
+            msg.save()
+            message = 'জিজ্ঞাসা করার জন্যে আপনাকে ধন্যবাদ !'
+            messages.success(request, message)
+            print('success')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        except:
+            message = 'Message sending fail!!'
+            messages.warning(request, message)
+            print('fail')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        message = 'Please provide all value field'
+        messages.warning(request, message)
+        print('null fail')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        
+   
+    
+    
+#     registered = False
+   
+#     if request.method == 'POST':
+#         user_form = UserProfileForm(data=request.POST)
+        
+#         if user_form.is_valid() :
+           
+#             user = user_form.save(commit = True)
+#             registered = True
+#             return redirect('login')
+            
+#     else:
+#         user_form = UserProfileForm()
+#     dic = {'title':'registration','registered':registered,'form':user_form,
+#             }
+#     return render(request,'userApp/signup.html',dic)

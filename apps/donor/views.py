@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect,redirect
+from django.contrib import messages
+from django.http import JsonResponse
+
 from django.views import generic
 
 from .models import Donor,Member,OrgMemorie
-
+from .forms import DonorRegForm
 from apps.information.models import OrgContact
 # Create your views here.
 
@@ -14,11 +17,24 @@ def home(request):
     total_donor = Donor.objects.filter(status='p').count()
     donor_list = Donor.objects.order_by('name').filter(status='p',blood_donor_status=True)
     
+    if request.method == 'POST':
+        form = DonorRegForm(request.POST)
+       
+        if form.is_valid() :
+            form.save()
+            message = 'ব্লাড ডোনার হিসেবে যোগদান করার জন্যে আপনাকে ধন্যবাদ !'
+            messages.success(request, message)
+            print('success')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        donor_form = DonorRegForm()
+    
     context = {
         'total_donor' : total_donor,
         'donor_list' : donor_list,
         'nbar':'home',
         'contacts':contact_obj,
+        'form':donor_form,
     }
     return render(request,'index.html',context)
 

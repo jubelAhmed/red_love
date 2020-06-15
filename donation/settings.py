@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'image_cropping',
     'import_export',
-
+    'crispy_forms',
 
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 MIDDLEWARE = [
@@ -156,7 +158,6 @@ from django.contrib.messages import constants as messages
 AUTH_USER_MODEL = 'cuser.CUser'
 
 
-
 from easy_thumbnails.conf import Settings as thumbnail_settings
 THUMBNAIL_PROCESSORS = (
     'image_cropping.thumbnail_processors.crop_corners',
@@ -164,3 +165,4 @@ THUMBNAIL_PROCESSORS = (
 IMAGE_CROPPING_BACKEND = 'image_cropping.backends.easy_thumbs.EasyThumbnailsBackend'
 IMAGE_CROPPING_BACKEND_PARAMS = {}
 
+DATE_INPUT_FORMATS = ('%d/%m/%Y','%d/%m/%Y')

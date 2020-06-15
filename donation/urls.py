@@ -24,6 +24,8 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView
 from cuser.forms import AuthenticationForm
+from django.views.i18n import JavaScriptCatalog
+
 
 urlpatterns = [
     path('admin/', admin.site.urls ),
@@ -32,6 +34,7 @@ urlpatterns = [
     path('', RedirectView.as_view(url='donor/')),
     url(r'^accounts/login/$', LoginView.as_view(authentication_form=AuthenticationForm), name='login'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+
 ]
 
 urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

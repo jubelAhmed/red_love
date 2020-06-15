@@ -130,6 +130,11 @@ RELEGION_CHOICES = [
     ('o', 'Others'),
 ]
 
+CURRENT_POSITION_CHOICES = [
+    ('running', 'Running'),
+    ('retired', 'Retired')
+]
+
 class Member(models.Model):
     donor = models.OneToOneField(Donor, on_delete=models.CASCADE,related_name='org_member',verbose_name="Related Donor Info")
     nid_or_birthday_no = models.CharField(max_length=100,help_text='Add your NID number or Birthday Number',null=True,blank=True)
@@ -138,7 +143,9 @@ class Member(models.Model):
     educational_status = models.CharField(max_length=250,help_text='S.S.C or H.S.C or B.S.C')
     occupation = models.CharField(max_length=250,help_text='Student / Business / Farmer /..')
     relegion = models.CharField(max_length=1, choices=RELEGION_CHOICES,default='i')
+    running_position_status = models.CharField(max_length=10, choices=CURRENT_POSITION_CHOICES,default='running')
     facebook_link = models.CharField(max_length=1000,null=True,blank=True)
+    position_name = models.CharField(max_length=250,null=True,blank=True)
     image = models.ImageField(upload_to='images/member/', null=True, blank=True)
     # size is "width x height"
     cropping = ImageRatioField('image', '400x300',size_warning=True)

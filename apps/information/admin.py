@@ -36,7 +36,7 @@ admin.site.register(Message,MessageAdmin)
 
 @admin.register(OrgContact)
 class DonorAdmin(SimpleHistoryAdmin):
-    list_display = ('address','fb_group_link')
+    list_display = ('address','fb_group_link','phone_list_view','email_list_view')
     # fields = ['name','phone',('blood_group','birth_date')]
 
     

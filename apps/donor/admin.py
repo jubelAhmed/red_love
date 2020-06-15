@@ -151,7 +151,7 @@ class MemberAdmin(ImageCroppingMixin, SimpleHistoryAdmin,ImportExportModelAdmin)
             'fields':('donor',('father_name','mother_name'),('occupation','relegion'),'facebook_link')
         }),
         ('others',{
-            'fields':('image','cropping')
+            'fields':('image','cropping','position_name','running_position_status')
         }),
     )
     # readonly_fields = ['image_tag']
@@ -175,7 +175,13 @@ class MemberAdmin(ImageCroppingMixin, SimpleHistoryAdmin,ImportExportModelAdmin)
 admin.site.register(Member,MemberAdmin)
 
 class OegMemoryAdmin(ImageCroppingMixin, SimpleHistoryAdmin):
-    pass
+    list_display = ('title','place','__str__','created_date')
+    list_display_links = ('title','place','__str__')
+    list_filter = ['created_date']
+    # resource_class = MemberResource
+  
+    date_hierarchy = 'created_date'
+    list_per_page = 10
     
 admin.site.register(OrgMemorie,OegMemoryAdmin)
 

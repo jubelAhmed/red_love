@@ -92,6 +92,19 @@ class OrgContact(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     
+    def phone_list_view(self):
+        phones = self.phonelist.all()[0:3]
+        phones_str = ''
+        for p in phones:
+            phones_str = phones_str + str(p.phone) +' , '
+        return phones_str
+    def email_list_view(self):
+        emails = self.emaillist.all()[0:3]
+        email_str = ''
+        for e in emails:
+            email_str = email_str + str(e.email) +' , '
+        return email_str
+    
     def __str__(self):
         return f"{self.fb_group_link} - {self.address}"
 

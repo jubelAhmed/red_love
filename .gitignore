@@ -113,15 +113,16 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# databse
+db.sqlite3 
 
-
-\webpackdonation\node_modules
+*/node_modules/*
 
 *.pyc
 *~
 /.vscode
 __pycache__
 myvenv
-db.sqlite3
 
+/static
 .DS_Store

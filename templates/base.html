@@ -14,6 +14,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'logo/logo-1.jpg' %}" />
 
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/font.css' %}">
@@ -37,23 +38,33 @@
     <link rel="stylesheet" href="{% static 'css/slide-show.css' %}">
     <link rel="stylesheet" href="{% static 'css/new-footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/love.css' %}">
-    <link rel="stylesheet" href="{% static 'css/common.css' %}">
 
    
-
+    {% block custom_style %}
+    
     <style>
         /* this style for love animation, If i want to add love in any file then change this style height,it will up from height */
         .new-style{
             height: 0px; 
         }
+        .nav-header{
+            font-size:20px ; 
+            letter-spacing: 0.2rem ;  
+            font-family: titlefont !important ;
+           
+        }
         
     </style>
+       
+    {% endblock custom_style %}   
+           
+
 
 </head>
 
-<body style="font-family: Georgia, 'Times New Roman', Times, serif;">
 
-    <div class="se-pre-con"></div>
+
+<body style="font-family: Georgia, 'Times New Roman', Times, serif;">
 
 
     {% block extra_animation %}     
@@ -80,6 +91,11 @@
     <script src="{% static 'custom/js/vertical-loop.js' %}"></script>
     <script src="{% static 'custom/js/common.js' %}"></script>
 
+    {% block script %}
+   
+  
+   
+   
     <script>
         
         toastr.options = {
@@ -99,10 +115,9 @@
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         }
-        $(document).ready(function() {
-            console.log("before world")
+        $(document).ready(function() { 
             {% if messages %}
-                console.log("message shown")
+           
                 {% for message in messages %}
                     toastr.{{ message.tags }}('{{ message }}');
                 {% endfor %}
@@ -112,16 +127,13 @@
          
 
 
+        
        
     </script>
 
-   
-
-    {% block script %}
-   
-  
-   
     {% endblock script %}
+    
+    
 
 
 </body>

@@ -3,7 +3,7 @@ import 'bootstrap' ;
 
 import './navbar' ;
 
-console.log("Hello Jubel ahmed")
+
 
  
 

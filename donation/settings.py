@@ -186,3 +186,4 @@ INTERNAL_IPS = [
     # ...
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

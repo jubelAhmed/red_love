@@ -23,9 +23,9 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = 'u6cvm1vno!rnjnx5ous5t0ip=1wnnqx(!y(=ntl8!!(z-=7g=4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['redlove.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'image_cropping',
     'import_export',
     'crispy_forms',
-    'whitenoise.runserver_nostatic'
+
 
 ]
 
@@ -63,7 +63,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
 
@@ -90,20 +89,51 @@ WSGI_APPLICATION = 'donation.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+import pymysql  # noqa: 402
+pymysql.version_info = (1, 4, 6, 'final', 0)  # change mysqlclient version
+pymysql.install_as_MySQLdb()
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'redlove', #database name
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+# [START db_setup]
+if os.getenv('GAE_APPLICATION', None):
+    # Running on production App Engine, so connect to Google Cloud SQL using
+    # the unix socket at /cloudsql/<your-cloudsql-connection string>
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/redlove-281020:asia-south1:redlove-instance',
+            'USER': 'jubel',
+            'PASSWORD': 'cx5dApL1v9u0eygG',
+            'NAME': 'main',
+        }
+    }
+else:
+    # Running locally so connect to either a local MySQL instance or connect to
+    # Cloud SQL via the proxy. To start the proxy via command line:
+    #
+    #     $ cloud_sql_proxy -instances="redlove-281020:asia-south1:redlove-instance"=tcp:3308
+    #
+    # See https://cloud.google.com/sql/docs/mysql-connect-proxy
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '127.0.0.1',
+            'PORT': '3308',
+            'NAME': 'main',
+            'USER': 'jubel',
+            'PASSWORD': 'cx5dApL1v9u0eygG',
+        }
+    }
+# [END db_setup]
+
+# Use a in-memory sqlite3 database when testing in CI systems
+if os.getenv('TRAMPOLINE_CI', None):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+        }
     }
 
-}
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -145,9 +175,7 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 STATIC_URL = '/static/'
-
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

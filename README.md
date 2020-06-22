@@ -19,3 +19,12 @@ For more convenience you can use a tool like [Goreman](https://github.com/mattn/
 Compile assets first with 'npx webpack --config webpack.congif.js' or `yarn build`, then use Django collectstatic: `python manage.py collectstatic`.
 
 If you're running on Heroku this will happen automatically if you use both the Node.js and Python buildpacks.
+
+
+<!-- latest run  -->
+#run
+cloud_sql_proxy.exe -instances="redlove-281020:asia-south1:redlove-instance"=tcp:3308
+
+
+#google cloud deploy
+gcloud app deploy ./app.yaml --project=redlove-281020

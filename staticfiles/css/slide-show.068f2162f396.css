@@ -1,0 +1,24 @@
+.header-slide-widgets {
+	position: relative;
+
+	padding-top: 96px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 20px;
+	font-weight: 500;
+	color: #929191;
+    
+
+	z-index: 99;
+}
+
+.header-slide-widgets::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 101%;
+	
+}

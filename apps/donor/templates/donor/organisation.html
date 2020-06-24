@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Red Love Society {% endblock title %}
+{% block title %} প্রতিষ্ঠান {% endblock title %}
 
 
 {% block content %}
@@ -138,12 +138,12 @@
         <div class="">
 
             <ul class="list-group list-group-flush">
-                <li class="list-group-item font-weight-bold " style="color:rgb(27, 37, 92)" ><i class="fas fa-arrow-alt-circle-right"></i> পার্শ্ববর্তী ইউনিয়নের সকল ব্লাড ডোনারদের এক জায়গায় নিয়ে আসা ।   
+                <li class="list-group-item font-weight-bold " style="color:rgb(27, 37, 92)" ><i class="fas fa-arrow-alt-circle-right pr-2"></i>পার্শ্ববর্তী ইউনিয়নের সকল ব্লাড ডোনারদের এক জায়গায় নিয়ে আসা ।   
                 </li>
-                <li class="list-group-item  font-weight-bold" style="color:rgb(27, 37, 92)"><i class="fas fa-arrow-alt-circle-right"></i>রক্ত দাতা যেন সহজে পাওয়া যায় সেই ব্যাবস্থা  করা । </li>
-                <li class="list-group-item font-weight-bold" style="color:rgb(27, 37, 92)"><i class="fas fa-arrow-alt-circle-right"></i> ইউনিয়নের সকল মানুষের রক্ত গ্রুপ নিশ্চিত করা । </li>
-                <li class="list-group-item font-weight-bold" style="color:rgb(27, 37, 92)"><i class="fas fa-arrow-alt-circle-right" style="color:rgb(27, 37, 92)"></i>আমাদের যোগ্য সদস্য থাকবে যারা একান্ত নিজ ইচ্ছায় রক্ত সহায়তায় এগিয়ে আসবে । </li>
-                <li class="list-group-item font-weight-bold " style="color:rgb(27, 37, 92)"><i class="fas fa-arrow-alt-circle-right"></i>আমাদের থেকে রক্ত চেয়ে যেন কেউ ফেরত যেতে না হয় সেই ব্যাবস্থা করা, এটাই আমাদের প্রধান লক্ষ্য । </li>
+                <li class="list-group-item  font-weight-bold" style="color:rgb(27, 37, 92)"><i class="fas fa-arrow-alt-circle-right pr-2"></i>রক্ত দাতা যেন সহজে পাওয়া যায় সেই ব্যাবস্থা  করা । </li>
+                <li class="list-group-item font-weight-bold" style="color:rgb(27, 37, 92)"><i class="fas fa-arrow-alt-circle-right pr-2"></i>ইউনিয়নের সকল মানুষের রক্ত গ্রুপ নিশ্চিত করা । </li>
+                <li class="list-group-item font-weight-bold" style="color:rgb(27, 37, 92)"><i class="fas fa-arrow-alt-circle-right pr-2" style="color:rgb(27, 37, 92)"></i>আমাদের যোগ্য সদস্য থাকবে যারা একান্ত নিজ ইচ্ছায় রক্ত সহায়তায় এগিয়ে আসবে । </li>
+                <li class="list-group-item font-weight-bold " style="color:rgb(27, 37, 92)"><i class="fas fa-arrow-alt-circle-right pr-2"></i>আমাদের থেকে রক্ত চেয়ে যেন কেউ ফেরত যেতে না হয় সেই ব্যাবস্থা করা, এটাই আমাদের প্রধান লক্ষ্য । </li>
             </ul>
 
         </div>
@@ -158,10 +158,12 @@
         <div class="swiper-container gallery-top ">
 
             <div class="swiper-wrapper ">
+                {% if org_activities %}
                 {% for activity in org_activities %}
                 <div class="swiper-slide" style="background-image:url({% cropped_thumbnail activity "cropping" scale=0.5  %});height:300px"></div>
                 
                 {%endfor%}
+                {% endif  %}
                
         
             </div>
@@ -171,10 +173,12 @@
         </div>
         <div class="swiper-container gallery-thumbs">
             <div class="swiper-wrapper">
+                {% if org_activities %}
                 {% for activity in org_activities %}
                 <div class="swiper-slide" style="background-image:url({% cropped_thumbnail activity "cropping" scale=0.5  %});height:200px"></div>
                 
                 {%endfor%}
+                {% endif %}
                
                
             </div>
@@ -188,13 +192,15 @@
     <h5 class="p-2 text-white font-weight-bold text-center" style="background-color: rgb(27, 37, 92)">রেড লাভ পরিবার </h5>
     <div class="row">
 
+        {% if member_list %}
         {% for member in member_list  %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="our-team bg-light">
                 <div class="picture" >
                     <!-- <img class="img-fluid" style="width: 130px;height:130px"  src="{{member.image.url}}"> -->
+                    {% if member.image %}
                     <img class="img-fluid" style="width: 130px;height:130px"  src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
-                    
+                    {% endif %}
 
                 </div>
                 <div class="team-content ">
@@ -213,6 +219,8 @@
         </div>
 
         {% endfor %}
+
+        {% endif %}
       
       
     </div>

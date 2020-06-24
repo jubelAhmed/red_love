@@ -154,6 +154,13 @@ class Member(models.Model):
     updated_date = models.DateTimeField(auto_now=True) 
     changed_by = models.ForeignKey(settings.AUTH_USER_MODEL,models.SET_NULL,null=True,blank=True)
     history = HistoricalRecords()
+    class Meta:
+        ordering = ['-created_date']
+        
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
     
     @property
     def _history_user(self):
@@ -203,6 +210,11 @@ class OrgMemorie(models.Model):
     
     class Meta:
         ordering = ['-created_date']
+    
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
     
     @property
     def _history_user(self):

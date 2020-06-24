@@ -1,6 +1,6 @@
 .footer-widgets {
 	position: relative;
-
+	background-color: black ;
 	padding-top: 96px;
 	padding-left: 50px;
 	padding-right: 50px;
@@ -8,7 +8,6 @@
 	font-weight: 500;
 	color: #929191;
 	background: url("/static/images/love_bg_footer.jpg") no-repeat center;
-
 	z-index: 99;
 }
 

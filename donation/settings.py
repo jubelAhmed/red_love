@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'image_cropping',
     'import_export',
     'crispy_forms',
+    'corsheaders',
+
 
 
 ]
@@ -63,10 +65,32 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+   
+
 
 ]
 
 ROOT_URLCONF = 'donation.urls'
+
+CORS_ORIGIN_ALLOW_ALL = True  
+CORS_ALLOW_CREDENTIALS = False
+ 
+from corsheaders.defaults import default_methods
+
+CORS_ALLOW_METHODS = list(default_methods) + [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with', 
+]
+
 
 TEMPLATES = [
     {
@@ -213,4 +237,15 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ]
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'static_content_bucket'
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+from google.oauth2 import service_account
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    "./redlove-service.json"
+)
 

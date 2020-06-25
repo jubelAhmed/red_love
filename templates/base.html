@@ -17,6 +17,7 @@
     <link rel="shortcut icon" href="{% static 'logo/logo-1.jpg' %}" />
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+    
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/font.css' %}">
@@ -95,6 +96,8 @@
     <script type="text/javascript" src="{% static 'custom/js/love.js' %}"></script>
     <script type="text/javascript" src="{% static 'custom/js/vertical-loop.js' %}"></script>
     <script type="text/javascript" src="{% static 'custom/js/common.js' %}"></script>
+    <script type="text/javascript" src="{% static 'custom/js/tables-slider.js' %}"></script>
+    
 
     {% block script %}
    
@@ -120,6 +123,7 @@
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         }
+       
         $(document).ready(function() { 
             {% if messages %}
            

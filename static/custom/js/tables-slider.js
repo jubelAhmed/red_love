@@ -1,5 +1,5 @@
     
- $(window).load(function () {
+ $(window).bind("load",function () {
      var table = $('#example').DataTable({
          "scrollX": true,
          "language": {

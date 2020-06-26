@@ -1,5 +1,5 @@
     
- $(window).bind("load",function () {
+ $(document).ready(function () {
      var table = $('#example').DataTable({
          "scrollX": true,
          "language": {
@@ -36,22 +36,22 @@
  });
 
  /* add swiper slide  */
-//  var swiper = new Swiper('swiper_1', {
-//      spaceBetween: 30,
-//      centeredSlides: true,
-//      autoplay: {
-//          delay: 10000,
-//          disableOnInteraction: false,
-//      },
-//      pagination: {
-//          el: '.swiper-pagination',
-//          clickable: true,
-//      },
-//      navigation: {
-//          nextEl: '.swiper-button-next',
-//          prevEl: '.swiper-button-prev',
-//      },
-//  });
+ var swiper = new Swiper('swiper_1', {
+     spaceBetween: 30,
+     centeredSlides: true,
+     autoplay: {
+         delay: 10000,
+         disableOnInteraction: false,
+     },
+     pagination: {
+         el: '.swiper-pagination',
+         clickable: true,
+     },
+     navigation: {
+         nextEl: '.swiper-button-next',
+         prevEl: '.swiper-button-prev',
+     },
+ });
 
 
  /* vertical loop */
@@ -65,13 +65,6 @@
  ///}, 10 * 1000);
 
 
- var verticalLoop = new VerticalLoop('.org-info2', {
-     delay: 3000,
-     order: 'desc',
-     oninitend: function (res) {
-         //console.log(res);
-     }
- });
 
 
  

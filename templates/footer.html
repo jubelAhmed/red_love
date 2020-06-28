@@ -10,9 +10,9 @@
                         <div class="col-md-6 col-sm-12 border-bottom border-info mb-5 pb-3 ">
                             <section class="">
                                 <h4 class="text-info"> <i class="fa fa-address-book" aria-hidden="true"></i> মোবাইল </h3>
-                                <p class="pl-2" style="margin-left: 2rem;">
+                                <p class="pl-2 " style="margin-left: 2rem;">
                                     {% for phone_list in contacts.phonelist.all %}
-                                    <a href="tel:{{phone_list.phone}}">{{phone_list.phone}}</a><br>
+                                    <a href="tel:{{phone_list.phone}}" data-toggle="tooltip" data-placement="top" title="{{phone_list.name}}">{{phone_list.phone}}</a><br>
                                     
                                     {% endfor %}
                                   
@@ -45,10 +45,10 @@
                                 <h4 class="text-info"> <i class="fas fa-handshake"></i>সামাজিক মাধ্যম </h4>
                                 <p class="pl-2 " style="margin-left: 2rem; ">
                                     <div class="d-flex flex-row">
-                                        <div class="p-2 data-toggle="tooltip" data-placement="top" title="ফেসবুক""> 
+                                        <div class="p-2 " data-toggle="tooltip" data-placement="top" title="ফেসবুক"> 
                                             <a class="text-primary" href=" {{contacts.fb_group_link}}" target="_blank"> <i class="fab fa-facebook-square fa-2x" aria-hidden="true" ></i></a>
                                         </div>
-                                        <!-- <div class="p-2 data-toggle="tooltip" data-placement="top" title="হোয়াটসঅ্যাপ""><a style="color: #1EAB;" href=""> <i class="fab fa-whatsapp-square fa-3x"></i> </a></div> -->
+                                        <!-- <div class="p-2" data-toggle="tooltip" data-placement="top" title="হোয়াটসঅ্যাপ"><a style="color: #1EAB;" href=""> <i class="fab fa-whatsapp-square fa-3x"></i> </a></div> -->
                                        
                                       </div>
                                 </p>

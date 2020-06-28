@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'image_cropping',
     'import_export',
     'crispy_forms',
-    'whitenoise.runserver_nostatic'
+    'whitenoise.runserver_nostatic',
 
 ]
 

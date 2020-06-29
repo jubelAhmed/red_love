@@ -195,26 +195,35 @@
 </div>
 
 
+
+
+
 <div class="container px-4 my-3 ">
     <h5 class="p-2 text-white font-weight-bold text-center" style="background-color: rgb(27, 37, 92)">রেড লাভ পরিবার </h5>
-    <div class="row">
 
-        {% if member_list %}
-        {% for member in member_list  %}
+    <div class="text-center mb-2">
+        <span class="badge badge-pill badge-danger p-2 font-weight-bold" style="font-size:16px">স্থায়ী কমিটি</span>
+    </div>
+
+    <div class="row">
+  
+        {% if permanent_member %}
+        {% for member in permanent_member  %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="our-team bg-light">
                 <div class="picture" >
                     <!-- <img class="img-fluid" style="width: 130px;height:130px"  src="{{member.image.url}}"> -->
                     {% if member.image %}
-                    <img class="img-fluid" style="width: 130px;height:130px;"  src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
+                    <img class="img-fluid" style="width: 130px;height:130px" src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
                     
                     {% endif %}
 
                 </div>
-                <div class="team-content ">
-                    <h5 class="name font-weight-bold text-info">{{member.donor.name}}</h4>
-                    <h6 class="title">{{member.occupation}}</h6>
-                    <h6 class="title">{{member.donor.blood_group}}</h6>
+                <div class="team-content " style="margin-top: -30px;">
+                    <h5 class="name font-weight-bold text-info">{{member.donor.name}}</h5>
+                    <h6 class="title text-info">{{member.get_organisation_position_display }}</h6>
+                    <h6 class="title text-muted" >পেশা: {{member.occupation}}</h6>
+                    <h6 class="title text-muted">ব্লাড গ্রুপ: {{member.donor.blood_group}}</h6>
                     
                 </div>
                 <ul class="social">
@@ -232,7 +241,86 @@
       
       
     </div>
+
+    <div class="text-center mb-2">
+        <span class="badge badge-pill badge-danger p-2 font-weight-bold" style="font-size:16px"> কার্য নির্বাহী কমিটি</span>
+    </div>
+    <div class="row">
+
+        {% if comittee_member %}
+        {% for member in comittee_member  %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="our-team bg-light">
+                <div class="picture" >
+                    <!-- <img class="img-fluid" style="width: 130px;height:130px"  src="{{member.image.url}}"> -->
+                    {% if member.image %}
+                    <img class="img-fluid" style="width: 130px;height:130px" src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
+                    
+                    {% endif %}
+
+                </div>
+                <div class="team-content " style="margin-top: -30px;">
+                    <h5 class="name font-weight-bold text-info">{{member.donor.name}}</h5>
+                    <h6 class="title text-info">{{member.get_organisation_position_display }}</h6>
+                    <h6 class="title text-muted" >পেশা: {{member.occupation}}</h6>
+                    <h6 class="title text-muted">ব্লাড গ্রুপ: {{member.donor.blood_group}}</h6>
+                    
+                </div>
+                <ul class="social">
+                    <li><a href="{% if member.facebook_link %} {{member.facebook_link}} {%else %}#{% endif %}" class="fab fa-facebook" aria-hidden="true" target="_blank" ><span class="pl-1">facebook</span></a>
+                    </li>
+                    <li class="text-white fas fa-phone "><span class="pl-1">{{member.donor.phone}}</span></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        {% endif %}
+      
+      
+    </div>
+
+    <div class="row">
+
+        {% if all_member %}
+        {% for member in all_member  %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="our-team bg-light">
+                <div class="picture" >
+                    <!-- <img class="img-fluid" style="width: 130px;height:130px"  src="{{member.image.url}}"> -->
+                    {% if member.image %}
+                    <img class="img-fluid" style="width: 130px;height:130px;"  src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
+                    
+                    {% endif %}
+
+                </div>
+                <div class="team-content " style="margin-top: -30px;">
+                    <h5 class="name font-weight-bold text-info">{{member.donor.name}}</h5>
+                    <h6 class="title text-info">{{member.get_organisation_position_display }}</h6>
+                    <h6 class="title text-muted" >পেশা: {{member.occupation}}</h6>
+                    <h6 class="title text-muted">ব্লাড গ্রুপ: {{member.donor.blood_group}}</h6>
+                    
+                </div>
+                <ul class="social">
+                    <li><a href="{% if member.facebook_link %} {{member.facebook_link}} {%else %}#{% endif %}" class="fab fa-facebook" aria-hidden="true" target="_blank" ><span class="pl-1">facebook</span></a>
+                    </li>
+                    <li class="text-white fas fa-phone "><span class="pl-1">{{member.donor.phone}}</span></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        {% endif %}
+      
+      
+    </div>
+
 </div>
+
 
 {% endblock content %}
 

@@ -132,7 +132,7 @@ class MemberResource(resources.ModelResource):
 
 class MemberAdmin(ImageCroppingMixin, SimpleHistoryAdmin,ImportExportModelAdmin):
     # list_display = [field.name for field in Member._meta.fields if field.name != "id" and field.name != "image" and field.name != "cropping"  ]
-    list_display = ('donor','donor_group','donor_phone','nid_or_birthday_no','father_name','mother_name','educational_status','occupation','facebook_link','image')
+    list_display = ('donor','donor_group','donor_phone','nid_or_birthday_no','father_name','mother_name','educational_status','occupation','organisation_position','facebook_link')
     list_display_links = ('donor','nid_or_birthday_no')
     list_filter = ['created_date']
     # resource_class = MemberResource
@@ -148,10 +148,10 @@ class MemberAdmin(ImageCroppingMixin, SimpleHistoryAdmin,ImportExportModelAdmin)
          
          {
             'classes': ('wide', 'extrapretty'),
-            'fields':('donor',('father_name','mother_name'),('occupation','relegion'),'facebook_link')
+            'fields':('donor',('father_name','mother_name'),('occupation','relegion'),'facebook_link','organisation_position')
         }),
         ('others',{
-            'fields':('image','cropping','position_name','running_position_status')
+            'fields':('image','cropping','running_position_status')
         }),
     )
     # readonly_fields = ['image_tag']

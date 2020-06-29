@@ -135,6 +135,30 @@ CURRENT_POSITION_CHOICES = [
     ('retired', 'Retired')
 ]
 
+COMITTEE_POSITION_CHOICES = [
+    ('member', 'সদস্য'),
+    ('permanent_member', 'স্থায়ী কমিটি সদস্য'),
+    ('chairmen', 'সভাপতি'),
+    ('vice_chairmen', 'সহ-সভাপতি'),
+    ('senior_vice_chairmen', 'সিনিয়র সহ-সভাপতি'),
+    ('general_secretary', 'সাধারণ সম্পাদক'),
+    ('organizational_secretary', 'সাংগঠনিক সম্পাদক'),
+    ('finance_secretary', 'অর্থ সম্পাদক'),
+    ('EducationAndSocialWelfareSecretary', 'শিক্ষা ও সমাজ কল্যাণ সম্পাদক'),
+    ('religion_secretary', 'ধর্ম সম্পাদক'),
+    ('InformationAndPlanningSecretary', 'তথ্য ও পরিকল্পনা সম্পাদক'),
+    ('finance_secretary', 'অর্থ সম্পাদক'),
+    ('office_secretary', 'অফিস সম্পাদক'),
+    ('BloodCoordinator', 'ব্লাড সমন্বয়ক'),
+    ('executive_member', 'নির্বাহী সদস্য'),
+    ('HealthSecretary', 'স্বাস্থ্য সম্পাদক'),
+    ('Co-GeneralSecretary', 'সহ-সাধারন সম্পাদক'),
+    ('Co-OrganizingSecretary', 'সহ-সাংগঠনিক সম্পাদক'),
+    ('MemberSecretary', 'সদস্য সচিব'),
+    ('international_secretary', 'আন্তর্জাতিক সম্পাদক'),
+    
+]
+
 class Member(models.Model):
     donor = models.OneToOneField(Donor, on_delete=models.CASCADE,related_name='org_member',verbose_name="Related Donor Info")
     nid_or_birthday_no = models.CharField(max_length=100,help_text='Add your NID number or Birthday Number',null=True,blank=True)
@@ -145,7 +169,7 @@ class Member(models.Model):
     relegion = models.CharField(max_length=1, choices=RELEGION_CHOICES,default='i')
     running_position_status = models.CharField(max_length=10, choices=CURRENT_POSITION_CHOICES,default='running')
     facebook_link = models.CharField(max_length=1000,null=True,blank=True)
-    position_name = models.CharField(max_length=250,null=True,blank=True)
+    organisation_position = models.CharField(max_length=100, choices=COMITTEE_POSITION_CHOICES,default='member')
     image = models.ImageField(upload_to='images/member/')
     # size is "width x height"
     cropping = ImageRatioField('image', '400x300',size_warning=True)

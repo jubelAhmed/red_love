@@ -7,6 +7,7 @@ from django.views import generic
 from .models import Donor, Member, OrgMemorie
 from .forms import DonorRegForm
 from apps.information.models import OrgContact
+from django.db.models import Q
 
 # Create your views here.
 
@@ -61,6 +62,9 @@ class OrganisationView(generic.ListView):
         context['nbar'] = 'org'
         context['contacts'] = contact_obj
         context['org_activities'] = OrgMemorie.objects.filter()[0:10]
+        context['permanent_member'] = Member.objects.filter(organisation_position="permanent_member")
+        context['all_member'] = Member.objects.filter(organisation_position="member")
+        context['comittee_member'] = Member.objects.filter(~Q(organisation_position="member"),~Q(organisation_position="permanent_member"))
         return context
 
     # def get_queryset(self):

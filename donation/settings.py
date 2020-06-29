@@ -23,7 +23,7 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = 'u6cvm1vno!rnjnx5ous5t0ip=1wnnqx(!y(=ntl8!!(z-=7g=4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['redlove.herokuapp.com','127.0.0.1','redlovebd.herokuapp.com','www.redlovebd.com','redlovebd.com']
 

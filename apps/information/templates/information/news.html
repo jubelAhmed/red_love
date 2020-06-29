@@ -3,10 +3,9 @@
 
 {% block title %} Blood News {% endblock title %}
 
-
-{% block content %}
-
+{% block custom_style %}     
 <style>
+  
   .faq-section .mb-0>a {
     display: block;
     position: relative;
@@ -57,6 +56,12 @@
 }
 
 </style>
+
+
+{% endblock custom_style %}     
+
+
+{% block content %}
 
 
 <!-- header -->
@@ -118,7 +123,7 @@
                     class="collapse {% if forloop.counter == 1 %} show {% endif %} " data-parent="#accordion"
                     aria-labelledby="heading-{{ forloop.counter }}">
                     <div class="card-body" >
-                      <p style="font-size:14px;font-family:'SolaimanLipi',Arial, Helvetica, sans-serif">{{info.answer|safe|linebreaks}}</p>
+                      <p style="font-size:14px;font-family:'SolaimanLipi',Arial, Helvetica, sans-serif">{{info.answer|safe}}</p>
                     </div>
                   </div>
                 </div>
@@ -184,21 +189,7 @@
   
   </div>
 
-  <!-- end blood group combination chart -->
-  <!-- <div class="card " style="min-height:4px" >
-    <div class="text-center ">
-      
-      <figure class="figure">
-    
-        <img class="figure-img rounded" width="100%" height="400px" src="{% static 'images/marriage-blood.jpgb' %}" alt="">
-        <figcaption class="figure-caption">স্বামী-স্ত্রীর  রক্তের গ্রূপ এর সামঞ্জস্য চার্ট  
-        </figcaption>
-        
-      </figure>
-        
-    </div>
-    
-  </div> -->
+  
 
 
 </div>

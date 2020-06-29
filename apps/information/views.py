@@ -17,7 +17,7 @@ def blood_news(request):
     context = {
         'information': information,
         'nbar': 'news',
-        # 'contacts':contact_obj,
+        'contacts':contact_obj,
 
     }
     return render(request, 'information/news.html', context)

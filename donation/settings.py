@@ -25,7 +25,7 @@ SECRET_KEY = 'u6cvm1vno!rnjnx5ous5t0ip=1wnnqx(!y(=ntl8!!(z-=7g=4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['redlove.herokuapp.com','127.0.0.1','redlovebd.herokuapp.com','www.redlovebd.com','redlovebd.com']
+ALLOWED_HOSTS = ['127.0.0.1','redlovebd.herokuapp.com','www.redlovebd.com','redlovebd.com',"*.redlovebd.com"]
 
 
 # Application definition
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
     'apps.donor',
     'apps.information',
     'simple_history',
@@ -62,7 +61,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
@@ -180,10 +178,6 @@ IMAGE_CROPPING_BACKEND_PARAMS = {}
 DATE_INPUT_FORMATS = ('%d/%m/%Y','%d/%m/%Y')
 
 
-INTERNAL_IPS = [
-    # ...
-    '127.0.0.1',
-    # ...
-]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+

@@ -29,7 +29,7 @@ from django.views.i18n import JavaScriptCatalog
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('donor/', include('apps.donor.urls')),
-    path('blood-news/', include('apps.information.urls')),
+    path('info/', include('apps.information.urls')),
     path('', RedirectView.as_view(url='donor/')),
     url(r'^accounts/login/$', LoginView.as_view(authentication_form=AuthenticationForm), name='login'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
@@ -39,9 +39,4 @@ urlpatterns = [
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    import debug_toolbar
 
-    urlpatterns = [
-                      path('__debug__/', include(debug_toolbar.urls)),
-                  ] + urlpatterns

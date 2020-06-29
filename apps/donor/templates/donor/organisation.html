@@ -206,7 +206,8 @@
                 <div class="picture" >
                     <!-- <img class="img-fluid" style="width: 130px;height:130px"  src="{{member.image.url}}"> -->
                     {% if member.image %}
-                    <img class="img-fluid" style="width: 130px;height:130px"  src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
+                    <img class="img-fluid" style="width: 130px;height:130px;"  src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
+                    
                     {% endif %}
 
                 </div>

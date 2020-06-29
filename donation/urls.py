@@ -25,6 +25,7 @@ from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView
 from cuser.forms import AuthenticationForm
 from django.views.i18n import JavaScriptCatalog
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +34,9 @@ urlpatterns = [
     path('', RedirectView.as_view(url='donor/')),
     url(r'^accounts/login/$', LoginView.as_view(authentication_form=AuthenticationForm), name='login'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    # for production media and static help when debug = false
+    url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 
 ]
 

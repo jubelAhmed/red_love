@@ -146,7 +146,7 @@ class Member(models.Model):
     running_position_status = models.CharField(max_length=10, choices=CURRENT_POSITION_CHOICES,default='running')
     facebook_link = models.CharField(max_length=1000,null=True,blank=True)
     position_name = models.CharField(max_length=250,null=True,blank=True)
-    image = models.ImageField(upload_to='images/member/', null=True, blank=True)
+    image = models.ImageField(upload_to='images/member/')
     # size is "width x height"
     cropping = ImageRatioField('image', '400x300',size_warning=True)
 
@@ -154,6 +154,9 @@ class Member(models.Model):
     updated_date = models.DateTimeField(auto_now=True) 
     changed_by = models.ForeignKey(settings.AUTH_USER_MODEL,models.SET_NULL,null=True,blank=True)
     history = HistoricalRecords()
+    
+    class Meta:
+        ordering = ['created_date']
     
     @property
     def _history_user(self):

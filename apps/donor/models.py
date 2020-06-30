@@ -147,7 +147,7 @@ COMITTEE_POSITION_CHOICES = [
     ('EducationAndSocialWelfareSecretary', 'শিক্ষা ও সমাজ কল্যাণ সম্পাদক'),
     ('religion_secretary', 'ধর্ম সম্পাদক'),
     ('InformationAndPlanningSecretary', 'তথ্য ও পরিকল্পনা সম্পাদক'),
-    ('finance_secretary', 'অর্থ সম্পাদক'),
+    ('publicity_secretary', 'প্রচার সম্পাদক'),
     ('office_secretary', 'অফিস সম্পাদক'),
     ('BloodCoordinator', 'ব্লাড সমন্বয়ক'),
     ('executive_member', 'নির্বাহী সদস্য'),

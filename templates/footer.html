@@ -48,7 +48,9 @@
                                         <div class="p-2 " data-toggle="tooltip" data-placement="top" title="ফেসবুক পেজ, এখানে গিয়ে মেসেজ করতে পারেন"> 
                                             <a class="text-primary" href=" {{contacts.fb_group_link}}" target="_blank"> <i class="fab fa-facebook-square fa-2x" aria-hidden="true" ></i></a>
                                         </div>
-                                        <!-- <div class="p-2" data-toggle="tooltip" data-placement="top" title="হোয়াটসঅ্যাপ"><a style="color: #1EAB;" href=""> <i class="fab fa-whatsapp-square fa-3x"></i> </a></div> -->
+                                        {% if contacts.youtube_link %}
+                                        <div class="p-2" data-toggle="tooltip" data-placement="top" title="ইউটিউব"><a style="color: rgba(247, 6, 6, 0.733);" href="{{contacts.youtube_link}}"> <i class="fab fa-youtube fa-3x"></i> </a></div>
+                                        {% endif %}
                                        
                                       </div>
                                 </p>

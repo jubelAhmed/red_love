@@ -88,7 +88,7 @@ class OrgContact(models.Model):
     )
     address = models.CharField(max_length=255)
     fb_group_link = models.URLField(max_length=1000)
-    # channel_link = models.CharField(max_length=255)
+    youtube_link = models.CharField(max_length=255,null=True,blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     

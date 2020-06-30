@@ -162,10 +162,11 @@
         <h5 class="p-2 text-white font-weight-bold text-center " style="background-color: rgb(27, 37, 92);"> কার্যক্রম ও স্মৃতিসমুহ </h5>
         <div class="swiper-container gallery-top ">
 
-            <div class="swiper-wrapper ">
+            <div class="swiper-wrapper" style="height: 300px;">
                 {% if org_activities %}
                 {% for activity in org_activities %}
-                <div class="swiper-slide" style="background-image:url({% cropped_thumbnail activity "cropping" scale=0.5  %});height:300px;background-size: 100% 100%;"></div>
+                <div class="swiper-slide bg-light" style="background-image:url('{{activity.image.url}}');height:300px;background-size:contain;background-repeat: no-repeat;
+                "></div>
                 
                 {%endfor%}
                 {% endif  %}
@@ -173,8 +174,8 @@
         
             </div>
             <!-- Add Arrows -->
-            <div class="swiper-button-next swiper-button-white"></div>
-            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-dark"></div>
+            <div class="swiper-button-prev swiper-button-dark"></div>
         </div>
         <div class="swiper-container gallery-thumbs">
             <div class="swiper-wrapper ">
@@ -182,7 +183,7 @@
                 {% for activity in org_activities %}
                 <div class="swiper-slide" style="height: 200px;
                 background-size: 100% 100%;
-                 background-image:url({% cropped_thumbnail activity 'cropping' scale=0.5  %});"></div>
+                 background-image:url('{{activity.image.url}}');"></div>
                 
                 {%endfor%}
                 {% endif %}
@@ -212,11 +213,11 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="our-team bg-light">
                 <div class="picture" >
-                    <!-- <img class="img-fluid" style="width: 130px;height:130px"  src="{{member.image.url}}"> -->
-                    {% if member.image %}
+                    <img class="img-fluid" style="width: 130px;height:130px"  src="{{member.image.url}}">
+                    <!-- {% if member.image %}
                     <img class="img-fluid" style="width: 130px;height:130px" src="{% cropped_thumbnail member "cropping" scale=0.5  %}">
                     
-                    {% endif %}
+                    {% endif %} -->
 
                 </div>
                 <div class="team-content " style="margin-top: -30px;">

@@ -23,7 +23,7 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = 'u6cvm1vno!rnjnx5ous5t0ip=1wnnqx(!y(=ntl8!!(z-=7g=4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','redlovebd.herokuapp.com','www.redlovebd.com','redlovebd.com',"*.redlovebd.com"]
 
@@ -45,11 +45,19 @@ INSTALLED_APPS = [
     'image_cropping',
     'import_export',
     'crispy_forms',
-    'whitenoise.runserver_nostatic',
+    'cloudinary_storage',
+    'cloudinary',
 
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hee8sjc6j',
+    'API_KEY': '563511985327468',
+    'API_SECRET': '9B_yfu0fZqxsGw2DY0Zd_1Kh_zE'
+}
 
 
 MIDDLEWARE = [
@@ -61,7 +69,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+  
 
 ]
 
@@ -148,7 +156,8 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 from django.contrib.messages import constants as messages
@@ -178,6 +187,4 @@ IMAGE_CROPPING_BACKEND_PARAMS = {}
 DATE_INPUT_FORMATS = ('%d/%m/%Y','%d/%m/%Y')
 
 
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

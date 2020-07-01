@@ -11,9 +11,6 @@ from django.db.models import Q
 
 # Create your views here.
 
-
-
-
 def home(request):
     contact = OrgContact.objects.order_by('-created_date')[:1]
     contact_obj = ''
@@ -25,12 +22,16 @@ def home(request):
 
     if request.method == 'POST':
         form = DonorRegForm(request.POST)
-
+        print(form)
         if form.is_valid():
             form.save()
             message = 'ব্লাড ডোনার হিসেবে যোগদান করার জন্যে আপনাকে ধন্যবাদ !'
             messages.success(request, message)
             print('success')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        else:
+            message = 'আপনার ফর্ম পুরন ঠিকমত হয় নাই, আপনাকে আবার ফর্ম পুরন করতে হবে  '
+            messages.error(request, message)
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         donor_form = DonorRegForm()

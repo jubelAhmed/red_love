@@ -23,7 +23,7 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = 'u6cvm1vno!rnjnx5ous5t0ip=1wnnqx(!y(=ntl8!!(z-=7g=4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','redlovebd.herokuapp.com','www.redlovebd.com','redlovebd.com',"*.redlovebd.com"]
 
@@ -47,11 +47,14 @@ INSTALLED_APPS = [
     'crispy_forms',
     'cloudinary_storage',
     'cloudinary',
+    'bootstrap_datepicker_plus',
 
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'hee8sjc6j',

@@ -6,11 +6,18 @@ from django.contrib.admin.widgets import AdminDateWidget,AdminSplitDateTime
 from donation import settings
 from django.forms.fields import DateField
 
-class DateInput(forms.DateInput):
-    input_type = 'date'
+
 
 class DonorRegForm(forms.ModelForm):
-    birth_date = DateField(widget=DateInput(attrs={'class':'dateinput form-control'}))
+    birth_date = DateField(
+        input_formats=['%Y-%m-%d'],
+        widget=forms.DateInput(attrs={
+            'class': 'form-control datetimepicker-input',
+            'data-target': '#datetimepicker1',
+            'id': 'id_birth_date',
+            
+        })
+    )
     class Meta:
         model = models.Donor
         fields = ('name', 'phone', 'email', 'blood_group', 'birth_date', 'present_address', 'permanent_address')

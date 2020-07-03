@@ -34,7 +34,7 @@ def message(request):
                 name=name, phone=phone, message=message
             )
             msg.save()
-            message = 'জিজ্ঞাসা করার জন্যে আপনাকে ধন্যবাদ !'
+            message = 'জিজ্ঞাসা করার জন্যে আপনাকে ধন্যবাদ ! আমরা শিঘ্রই আপনার উত্তর দিব । '
             messages.success(request, message)
             print('success')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

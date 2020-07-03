@@ -25,7 +25,7 @@ def home(request):
         print(form)
         if form.is_valid():
             form.save()
-            message = 'ব্লাড ডোনার হিসেবে যোগদান করার জন্যে আপনাকে ধন্যবাদ !'
+            message = 'ব্লাড ডোনার হিসেবে যোগদান করার জন্যে আপনাকে ধন্যবাদ! আমাদের ভেরিফিকেশন টিম আপনাকে ভেরিফাই করবে তারপর লিস্টে আসবে ।'
             messages.success(request, message)
             print('success')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

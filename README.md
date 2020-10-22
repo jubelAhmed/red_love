@@ -1,7 +1,7 @@
 # red_love
 This is make for searching blood donor and make it available in online.
 
-It's deployed on Heroku [here](https://django-webpack.herokuapp.com).
+It's deployed on Heroku [here](http://www.redlovebd.com/donor/).
 
 ## Installation
 

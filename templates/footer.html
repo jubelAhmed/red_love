@@ -1,15 +1,16 @@
    
-<footer class="site-footer " id="contact">
-    <div class="footer-widgets bg-dark">
+<footer class="site-footer" id="contact" >
+    <div class="footer-widgets bg-dark" style="font-size: 12px;">
         <div class="container">
-            <h2 style="color:#00BFF3">আপনারা প্রয়োজনে আমাদের সাথে যোগাযোগ করতে পারেন
+            <h2 style="color:#00BFF3; font-family: 'SolaimanLipi', sans-serif; font-size: 24px; font-weight: bold;">
+                আমাদের সাথে যোগাযোগ করুন
             </h2>
             <div class="row">
                 <div class="col-md-5 col-sm-12">
                     <div class="row">
                         <div class="col-md-6 col-sm-12 border-bottom border-info mb-5 pb-3 ">
-                            <section class="">
-                                <h4 class="text-info"> <i class="fa fa-address-book" aria-hidden="true"></i> মোবাইল </h3>
+                            <section class="" style="font-size: 12px;">
+                                <h6 class="text-info"> <i class="fa fa-address-book" aria-hidden="true"></i> মোবাইল </h3>
                                 <p class="pl-2" style="margin-left: 2rem;">
                                     {% for phone_list in contacts.phonelist.all %}
                                     <a href="tel:{{phone_list.phone}}">{{phone_list.phone}}</a><br>
@@ -21,7 +22,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12 border-bottom border-info mb-5 pb-3 ">
                             <section>
-                                <h4 class="text-info"> <i class="fa fa-address-book" aria-hidden="true"></i> ইমেইল</h3>
+                                <h6 class="text-info"> <i class="fa fa-address-book" aria-hidden="true"></i> ইমেইল</h3>
                                 <p class="pl-2" style="margin-left: 2rem;">
                                     {% for email_list in contacts.emaillist.all %}
                                     <a href="mailto:{{email_list.email}}">{{email_list.email}}</a><br>
@@ -34,7 +35,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12 border-bottom border-info mb-5 pb-3 ">
                             <section>
-                                <h4 class="text-info"> <i class="fas fa-address-card"></i> ঠিকানা</h3>
+                                <h6 class="text-info"> <i class="fas fa-address-card"></i> ঠিকানা</h3>
                                 <p class="pl-2" style="margin-left: 2rem;">
                                     {{contacts.address}}
                                 </p>
@@ -42,7 +43,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12 border-bottom border-info mb-5 pb-3 ">
                             <section>
-                                <h4 class="text-info"> <i class="fas fa-handshake"></i>সামাজিক মাধ্যম </h4>
+                                <h6 class="text-info"> <i class="fas fa-handshake"></i> সামাজিক মাধ্যম </h6>
                                 <p class="pl-2 " style="margin-left: 2rem; ">
                                     <div class="d-flex flex-row">
                                         <div class="p-2 data-toggle="tooltip" data-placement="top" title="ফেসবুক""> 
@@ -58,7 +59,7 @@
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-5 col-sm-12">
-                    <h4 class="text-danger pb-2">আপনি জিজ্ঞাসা করতে চান ? </h4>
+                    <h6 class="text-danger pb-2">আপনি জিজ্ঞাসা করতে চান ? </h6>
                     <form action="{% url 'message' %}" data-message-url="{% url 'message' %}" id="msg_form"
                     enctype="multipart/form-data"  method="POST" >
                          {% csrf_token %} 
@@ -85,8 +86,8 @@
                             <textarea name="message" class="form-control" placeholder="বিস্তারিত" id="id_message" rows="4" required></textarea>
                         </div>
                         <div class="">
-                            <button id="id_send_btn" type="submit"  class="btn-lg btn-primary px-4">SEND</button>
-                            <button type="reset" class="btn-lg    btn-outline-primary">RESET</button>
+                            <button id="id_send_btn" type="submit"  class="btn-sm btn-primary px-4">SEND</button>
+                            <button type="reset" class="btn-sm btn-outline-primary">RESET</button>
                            
                         </div>
                     </form>
@@ -97,20 +98,18 @@
         </div><!-- .container -->
     </div><!-- .footer-widgets -->
   
-    <div class="footer-bar m-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <p class="m-0">
-                        Copyright &copy;<script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved | This is made for Bangladesh <i
-                            class="text-danger fa fa-heart" aria-hidden="true"></i> <span class="pl-0">Developed
-                            by</span> <a href="https://web.facebook.com/jubel4926" target="_blank">Jubel Ahmed</a>
-                    </p>
-                </div>
-            </div><!-- .row -->
-        </div><!-- .container -->
-    </div><!-- .footer-bar -->
+    
   </footer>
 
+<div class="footer-bar  border-top text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <p class="m-0">
+                    &copy; <script>document.write(new Date().getFullYear());</script> সর্বস্বত্ব সংরক্ষিত |
+                    এটি বাংলাদেশের জন্য তৈরি করা হয়েছে
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,6 @@ from . import models
 from django.utils.translation import ugettext_lazy as _
 
 from django.contrib.admin.widgets import AdminDateWidget,AdminSplitDateTime
-from donation import settings
 from django.forms.fields import DateField
 
 class DateInput(forms.DateInput):

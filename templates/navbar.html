@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg navbar-mainbg  "  >
     <a class="navbar-brand navbar-logo mr-0"  href="#" >
         <img class="" src="{% static 'logo/logo-1.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt=""> 
-        <span  class="text-white" style="font-family: titlefont !important;" > <span class="text-warning" style="">রে</span>ডলাভ <span class="text-warning">ব্লা</span>ড <span class="text-warning">সো</span>সাইটি </a>
+        <span  class="text-white" style="font-family: titlefont !important;font-size:25px" > <span class="text-warning" style="">রে</span>ডলাভ <span class="text-warning">ব্লা</span>ড <span class="text-warning">সো</span>সাইটি </a>
 
     </span>
     <!-- রেড লাভ ব্লাড সোসাইটি -->
@@ -33,4 +33,36 @@
             
         </ul>
     </div>
-</nav>
+</nav> 
+
+{% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="#">
+        <img src="{% static 'logo/logo-1.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span class="ml-2 font-weight-bold" style="font-size: 20px; color: black;">রেডলাভ ব্লাড সোসাইটি</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav" style="font-size: 18px;">
+            <li class="nav-item {% if nbar == 'home' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'home' %}" style="color: black;"><i class="fas fa-tachometer-alt mr-2"></i>রক্ত দাতা</a>
+            </li>
+            <li class="nav-item {% if nbar == 'news' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'blood_news' %}" style="color: black;"><i class="far fa-copy mr-2"></i>তথ্য</a>
+            </li>
+            <li class="nav-item {% if nbar == 'org' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'organisation' %}" style="color: black;"><i class="far fa-address-book mr-2"></i>প্রতিষ্টান</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact" style="color: black;"><i class="far fa-clone mr-2"></i>যোগাযোগ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="{% url 'admin:index' %}" style="color: black;"><i class="far fa-copy mr-2"></i>এডমিন</a>
+            </li>
+        </ul>
+    </div>
+</nav> {% endcomment %}
+
+

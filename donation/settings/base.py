@@ -81,7 +81,10 @@ USE_I18N = True
 USE_L10N = True
 # USE_TZ = True
 
-STATICFILES_DIRS = [STATIC_DIR]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    "/var/www/static/",
+]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
 

@@ -1,20 +1,25 @@
 from donation.settings.base import *
 
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .os.getenv file
+load_dotenv()
+
 DEBUG = False
 
-ALLOWED_HOSTS = ['your-production-domain.com']
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT', '3306'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv("DB_NAME","d"),
+        'USER': os.getenv("DB_USER","d"),
+        'PASSWORD': os.getenv("DB_PASSWORD","d"),
+        'HOST': os.getenv("DB_HOST","d"),
+        'PORT': os.getenv("DB_PORT","d"),
     }
 }
-
 # Security settings
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True

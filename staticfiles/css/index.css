@@ -14,8 +14,6 @@ body{
 	padding: 15px;
 	color: #fff;
 }
-
-
 .navbar-mainbg{
 	background-color: rgb(27, 37, 92);
 	padding: 0px;
@@ -41,14 +39,11 @@ body{
     font-size: 15px;
     display: block;
     padding: 20px 20px;
-    transition-duration:0.6s;
-	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    position: relative;
+	position: relative;
 }
 #navbarSupportedContent>ul>li.active>a{
 	color: rgb(27, 37, 92);
 	background-color: transparent;
-	transition: all 0.7s;
 }
 #navbarSupportedContent a:not(:only-child):after {
 	content: "\f105";
@@ -61,7 +56,6 @@ body{
 	padding-right: 3px;
 	vertical-align: middle;
 	font-weight: 900;
-	transition: 0.5s;
 }
 #navbarSupportedContent .active>a:not(:only-child):after {
 	transform: rotate(90deg);
@@ -72,8 +66,6 @@ body{
 	height: 100%;
 	top: 0px;
 	left: 0px;
-	transition-duration:0.6s;
-	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 	background-color: #fff;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
@@ -110,9 +102,6 @@ body{
 	bottom: 0;
     left: -25px;
 }
-
-
-
 
 @media (max-width: 991px){
 	#navbarSupportedContent ul li a{

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # Load environment variables from .os.getenv file
 load_dotenv()
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 

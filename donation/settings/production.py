@@ -10,6 +10,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+TIME_ZONE = 'UTC'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

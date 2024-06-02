@@ -225,7 +225,6 @@ address a:hover {
   padding: 15px 0;
   font-weight: 700;
   color: #fff;
-  background-image: url("/static/images/ribbon.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

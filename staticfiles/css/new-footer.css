@@ -5,7 +5,7 @@
 	padding-left: 50px;
 	padding-right: 50px;
 	padding-bottom: 20px;
-	font-weight: 500;
+	font-weight: 100;
 	color: #929191;
 	background: url("/static/images/love_bg_footer.jpg") no-repeat center;
 
@@ -37,7 +37,7 @@
 
 .footer-widgets ul li {
 	margin-bottom: 8px;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .footer-widgets ul li a {
@@ -50,13 +50,13 @@
 }
 
 .foot-about p {
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 2;
 	color: #929191;
 }
 
 .foot-about ul li {
-	margin-right: 28px;
+	margin-right: 20px;
 }
 
 .foot-about ul li a {
@@ -69,7 +69,7 @@
 }
 
 .foot-latest-news ul li h3 {
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .foot-latest-news ul li .posted-date {
@@ -80,13 +80,13 @@
 .foot-contact ul li {
 	display: flex;
 	align-items: baseline;
-	margin-bottom: 15px;
+	margin-bottom: 12px;
 }
 
 .foot-contact ul li .fa {
 	width: 28px;
 	margin-right: 10px;
-	font-size: 18px;
+	font-size: 12px;
 	text-align: center;
 	color: #ff5a00;
 }
